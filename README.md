@@ -1,0 +1,2 @@
+# AdamantiumPOS
+Sistema de inventarios
