@@ -1,6 +1,8 @@
 import java.util.Date;
 
+/* Objeto para guardar los datos de una factura*/
 public class Factura {
+    /* Atributos de la factura */
     int id_factura;
     int id_producto;
     int cantidad;
@@ -22,6 +24,8 @@ public class Factura {
         this.total = 0;
         this.fecha = new Date();
     }
+
+    /* Metodos get y set para los atributos de la factura */
 
     public int getId_factura() {
         return id_factura;
@@ -62,5 +66,4 @@ public class Factura {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
 }
