@@ -2,12 +2,16 @@
 class Arreglo {
 
     /* Atributos del arreglo */
-    Objeto data;
-    int size;
-    int count;
-    int position;
-    Factura arreglo[];
+    private int size;
+    private int count;
+    private int position;
+    private Factura arreglo[];
 
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    /* Constructor con el parametro de tamaño */
     public Arreglo(int size) {
         this.size = size;
         this.arreglo = new Factura[size];
@@ -39,16 +43,16 @@ class Arreglo {
     }
 
     /* Metodo para eliminar un objeto factura del arreglo */
-    public boolean delete(Factura item) {
+    public boolean delete(int id) {
         boolean deleted = false;
         if (!empty())
-            if (search(item)) {
+            if (searchId(id)) {
                 for (int j = position; j < count - 1; j++)
                     arreglo[j] = arreglo[j + 1];
                 count--;
                 deleted = true;
             } else {
-                System.out.println("El elemento no esta en la lista");
+                System.out.println("La factura no esta en la lista");
             }
 
         return deleted;
@@ -56,7 +60,8 @@ class Arreglo {
 
     /*
      * Metodo para verificar si un objeto factura se encuentra dentro
-     * del arreglo
+     * del arreglo (se usa para evitar insertar una factura mas de una
+     * vez en la lista)
      */
     private boolean search(Factura item) {
         boolean found = false;
@@ -65,6 +70,26 @@ class Arreglo {
 
         while (position < count && !stop) {
             if (arreglo[position] == item) {
+                found = true;
+                stop = true;
+            } else {
+                position++;
+            }
+        }
+        return found;
+    }
+
+    /*
+     * Metodo para verificar si un id de factura se encuentra dentro
+     * del arreglo (se usa para eliminar una factura por su id)
+     */
+    private boolean searchId(int id) {
+        boolean found = false;
+        boolean stop = false;
+        position = 0;
+
+        while (position < count && !stop) {
+            if (arreglo[position].getId_factura() == id) {
                 found = true;
                 stop = true;
             } else {
