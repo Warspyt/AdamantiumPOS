@@ -87,7 +87,8 @@ public class Main {
                     int optionFacturacion = Integer
                             .parseInt(JOptionPane.showInputDialog("Elija una opción para comenzar, "
                                     + "\n1: Agregar factura"
-                                    + "\n2: Eliminar factura"));
+                                    + "\n2: Eliminar factura"
+                                    + "\n3: Ver facturacion"));
                     switch (optionFacturacion) {
                         case 1:
                             /* Creacion de una nueva factura que se inserta en el arreglo de facturas */
@@ -107,6 +108,9 @@ public class Main {
                             Facturacion.delete(
                                     Integer.parseInt(
                                             JOptionPane.showInputDialog("Inserte el id de la factura a eliminar")));
+                            break;
+                        case 3:
+                            Facturacion.PrintFacturas();
                             break;
                         default:
                             JOptionPane.showMessageDialog(null, "Inserte una opción válida");

@@ -1,3 +1,5 @@
+import javax.swing.JFrame;
+
 /* Estructura lineal de una lista implementando un arreglo */
 class Arreglo {
 
@@ -97,6 +99,33 @@ class Arreglo {
             }
         }
         return found;
+    }
+
+    /* Metodo para mostrar las facturas */
+    public void PrintFacturas() {
+        TablaFactura tablafacturas = new TablaFactura();
+
+        int i = 0;
+        while (arreglo[i] != null) {
+            Object[] newRow = { arreglo[i].getId_factura(),
+                    arreglo[i].getId_producto(),
+                    arreglo[i].getCantidad(),
+                    arreglo[i].getTotal(),
+                    arreglo[i].getFecha(), };
+            tablafacturas.addRow(newRow);
+            i++;
+        }
+
+        // while (printed != null) {
+        // Object[] newRow = { printed.getNombre(), printed.getId(),
+        // printed.getPrecio(), printed.getCantidad() };
+        // tablafacturas.addRow(newRow);
+        // printed = printed.getNext();
+        // }
+        JFrame mimarco = tablafacturas;
+        mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mimarco.setVisible(true);
+
     }
 
 }

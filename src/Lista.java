@@ -14,7 +14,6 @@ class Lista {
     public void insert(Objeto dato) {
         Node nodito = new Node(dato);
 
-
         if (empty()) {
             inicio = nodito;
         } else {
@@ -23,6 +22,7 @@ class Lista {
         }
 
     }
+
     public Node consultar(int item) {
         Node pos = new Node();
 
@@ -39,7 +39,6 @@ class Lista {
         System.out.println("Item no encontrado");
         return pos;
 
-
     }
 
     public void modificar(int id, String nombre, int precio_dis, int precio_ven, int cantidad) {
@@ -50,7 +49,7 @@ class Lista {
             nodo.getData().setPrecio_distribuidor(precio_dis);
             nodo.getData().setPrecio_venta(precio_ven);
             nodo.getData().setCantidad(cantidad);
-            inicio=nodo;
+            inicio = nodo;
         }
     }
 
@@ -65,8 +64,8 @@ class Lista {
             inicio = pos;
         }
     }
-    public void printList()
-    {
+
+    public void printList() {
         Node pos = inicio;
         while (pos != null) {
             pos.getData().toString();
