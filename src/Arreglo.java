@@ -115,13 +115,6 @@ class Arreglo {
             tablafacturas.addRow(newRow);
             i++;
         }
-
-        // while (printed != null) {
-        // Object[] newRow = { printed.getNombre(), printed.getId(),
-        // printed.getPrecio(), printed.getCantidad() };
-        // tablafacturas.addRow(newRow);
-        // printed = printed.getNext();
-        // }
         JFrame mimarco = tablafacturas;
         mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mimarco.setVisible(true);

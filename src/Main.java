@@ -94,6 +94,7 @@ public class Main {
                             /* Creacion de una nueva factura que se inserta en el arreglo de facturas */
                             Factura factura;
 
+                            /* Se piden los datos de entrada al usuario */
                             factura = new Factura(
                                     Integer.parseInt(JOptionPane.showInputDialog("Inserte el id de la factura")),
                                     Integer.parseInt(JOptionPane.showInputDialog("Inserte el id del producto")),
@@ -110,6 +111,7 @@ public class Main {
                                             JOptionPane.showInputDialog("Inserte el id de la factura a eliminar")));
                             break;
                         case 3:
+                            /* Mostrar la facturacion en una tabla */
                             Facturacion.PrintFacturas();
                             break;
                         default:
