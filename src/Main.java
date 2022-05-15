@@ -11,12 +11,12 @@ public class Main {
         Arreglo Facturacion;
         Facturacion = new Arreglo(200);
         Facturacion.facturacionAleatoria(100);
-        // Inventory inventario;
-        // inventario = new Inventory();
+        Inventory inventario;
+        inventario = new Inventory();
 
-        // inventario.Insertar("Camisar", "p302", 30000, 10);
-        // inventario.Insertar("Pantalon", "p322", 30000, 10);
-        // inventario.Insertar("Medias", "p332", 3000, 20);
+        inventario.Insertar("Camisar", 302, 30000, 40000, 10);
+        inventario.Insertar("Pantalon", 322, 30000, 35000,10);
+        inventario.Insertar("Medias", 332, 3000, 10000,20);
 
         while (true) {
 
@@ -34,49 +34,54 @@ public class Main {
                                     + "\n1: Agregar producto"
                                     + "\n2: Eliminar producto"
                                     + "\n3: Cantidad de unidades de un producto"
-                                    + "\n4: Precio de un producto"
-                                    + "\n5: Modificar Cantidad de un producto"
-                                    + "\n6: Modificar Precio producto"));
+                                    + "\n4: Precio Distribuidor de un producto"
+                                    + "\n5: Precio de Venta de un producto"
+                                    + "\n6: Modificar Cantidad de un producto"
+                                    + "\n7: Modificar Precio Distribuidor producto"
+                                    + "\n6: Modificar Precio Venta producto"));
                     switch (optionInventario) {
                         case 1:
-                            // inventario.Insertar(JOptionPane.showInputDialog("Inserte el nombre del
-                            // producto"),
-                            // JOptionPane.showInputDialog("Inserte la id(o referencia) del producto"),
-                            // Integer.parseInt(JOptionPane.showInputDialog("Inserte el precio del
-                            // producto")),
-                            // Integer.parseInt(JOptionPane.showInputDialog("Inserte la cantidad
-                            // disponile")));
+                            inventario.Insertar(JOptionPane.showInputDialog("Inserte el nombre del producto"),
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")),
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte el precio de Distribuidor del producto")),
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte el precio de Venta del producto")),
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la cantidad disponile")));
                             break;
                         case 2:
-                            // inventario.Eliminar(
-                            // JOptionPane.showInputDialog("Inserte la id(o referencia) del producto a
-                            // eliminar"));
+                            inventario.Eliminar(
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto a eliminar")));
                             break;
                         case 3:
-                            // Node searchCantidad = inventario
-                            // .Search(JOptionPane.showInputDialog("Inserte la id(o referencia) del
-                            // producto"));
-                            // JOptionPane.showMessageDialog(null, "Hay " + searchCantidad.getCantidad() + "
-                            // unidades");
+                            Objeto searchCantidad = inventario
+                            .Search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
+                            JOptionPane.showMessageDialog(null, "Hay " + searchCantidad.getCantidad() + " unidades");
                             break;
                         case 4:
-                            // Node searchPrecio = inventario
-                            // .Search(JOptionPane.showInputDialog("Inserte la id(o referencia) del
-                            // producto"));
-                            // JOptionPane.showMessageDialog(null,
-                            // "El producto cuesta " + searchPrecio.getPrecio() + " pesos");
+                            Objeto searchPrecioDistribuidor = inventario
+                            .Search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
+                            JOptionPane.showMessageDialog(null, "El producto cuesta " + searchPrecioDistribuidor.getPrecio_distribuidor() + " pesos");
                             break;
                         case 5:
-                            // inventario.ModificarCantidad(
-                            // JOptionPane.showInputDialog("Inserte la id(o referencia) del producto"),
-                            // Integer.parseInt(JOptionPane
-                            // .showInputDialog("Inserte la nueva cantidad de unidades del producto")));
+                            Objeto searchPrecioVenta = inventario
+                            .Search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
+                            JOptionPane.showMessageDialog(null, "El producto cuesta " + searchPrecioVenta.getPrecio_venta() + " pesos");
                             break;
                         case 6:
-                            // inventario.ModificarPrecio(
-                            // JOptionPane.showInputDialog("Inserte la id(o referencia) del producto"),
-                            // Integer.parseInt(
-                            // JOptionPane.showInputDialog("Inserte el nuevo precio del producto")));
+                            inventario.ModificarCantidad(
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")),
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la nueva cantidad de unidades del producto")));
+                            break;
+                        case 7:
+                            inventario.ModificarPrecioDistribuidor(
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")),
+                            Integer.parseInt(
+                            JOptionPane.showInputDialog("Inserte el nuevo precio del producto")));
+                            break;
+                        case 8:
+                            inventario.ModificarPrecioDistribuidor(
+                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")),
+                            Integer.parseInt(
+                            JOptionPane.showInputDialog("Inserte el nuevo precio del producto")));
                             break;
                         default:
                             JOptionPane.showMessageDialog(null, "Inserte una opción válida");
@@ -124,7 +129,7 @@ public class Main {
                 case 4:
                     break;
                 case 5:
-                    // inventario.ImprimirInventario();
+                    inventario.ImprimirInventario();
                     break;
             }
         }

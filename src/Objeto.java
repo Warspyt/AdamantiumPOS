@@ -4,6 +4,7 @@ public class Objeto {
     int precio_distribuidor;
     int precio_venta;
     int cantidad;
+    Objeto next,prev;
 
     public Objeto()
     {
@@ -60,6 +61,18 @@ public class Objeto {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+    public Objeto getNext(){
+        return next;
+    }
+    public void setNext(Objeto next){
+        this.next = next;
+    }
+    public Objeto getPrev(){
+        return prev;
+    }
+    public void setPrev(Objeto prev){
+        this.prev = prev;
     }
 
     @Override
