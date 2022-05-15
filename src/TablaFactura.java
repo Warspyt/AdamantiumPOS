@@ -27,6 +27,6 @@ public class TablaFactura extends JFrame {
         model.insertRow(0, row);
     }
 
-    private final String[] columNames = { "Id-Factura", "Referencia Producto", "Cantidad", "Total", "Fecha" };
+    private final String[] columNames = { "Id-Factura", "Referencia Producto", "Cantidad","Precio-unidad", "Total", "Fecha" };
     private Object[][] datosFilas;
 }

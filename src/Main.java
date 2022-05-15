@@ -5,18 +5,34 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Inventory inventario = new Inventory();
+
+//        for(int i=1;i<=5;i++)
+//        {
+//            int random=(int)Math.floor(Math.random()*(100-50+1)+50);
+//            inventario.Insertar(i,"a",random,random,random);
+//        }
+//        inventario.Insertar(1,"a",200,400,4);
+//        inventario.Insertar(2,"a",200,500,4);
+//        inventario.Insertar(3,"a",200,800,4);
+//        //inventario.ImprimirInventario();
+//        Arreglo arr= new Arreglo(5);
+//        arr.insert(new Factura(1,1,3,new Date(),inventario));
+//        arr.insert(new Factura(2,2,6,new Date(),inventario));
+//        arr.insert(new Factura(3,3,2,new Date(),inventario));
+//        arr.printFacturas();
         JOptionPane.showMessageDialog(null, "Bienvenido a ADAMANTIUM POS");
 
         // Creacion del arreglo para guardar las facturas
         Arreglo Facturacion;
         Facturacion = new Arreglo(200);
-        Facturacion.facturacionAleatoria(100);
+        //Facturacion.facturacionAleatoria(100);
         Inventory inventario;
         inventario = new Inventory();
 
-        inventario.Insertar("Camisar", 302, 30000, 40000, 10);
-        inventario.Insertar("Pantalon", 322, 30000, 35000,10);
-        inventario.Insertar("Medias", 332, 3000, 10000,20);
+        inventario.Insertar(302,"Camisar", 30000, 40000, 10);
+        inventario.Insertar(322,"Pantalon" , 30000, 35000,10);
+        inventario.Insertar( 332,"Medias", 3000, 10000,20);
 
         while (true) {
 
@@ -41,8 +57,8 @@ public class Main {
                                     + "\n6: Modificar Precio Venta producto"));
                     switch (optionInventario) {
                         case 1:
-                            inventario.Insertar(JOptionPane.showInputDialog("Inserte el nombre del producto"),
-                            Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")),
+                            inventario.Insertar(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")),
+                            JOptionPane.showInputDialog("Inserte el nombre del producto"),
                             Integer.parseInt(JOptionPane.showInputDialog("Inserte el precio de Distribuidor del producto")),
                             Integer.parseInt(JOptionPane.showInputDialog("Inserte el precio de Venta del producto")),
                             Integer.parseInt(JOptionPane.showInputDialog("Inserte la cantidad disponile")));
@@ -105,8 +121,7 @@ public class Main {
                                     Integer.parseInt(JOptionPane.showInputDialog("Inserte el id de la factura")),
                                     Integer.parseInt(JOptionPane.showInputDialog("Inserte el id del producto")),
                                     Integer.parseInt(JOptionPane.showInputDialog("Inserte la cantidad")),
-                                    Integer.parseInt(JOptionPane.showInputDialog("Inserte el valor total")),
-                                    new Date());
+                                    new Date(),inventario);
 
                             Facturacion.insert(factura);
                             break;

@@ -108,6 +108,7 @@ class Arreglo {
             Object[] newRow = { arreglo[i].getId_factura(),
                     arreglo[i].getId_producto(),
                     arreglo[i].getCantidad(),
+                    arreglo[i].getPrecio_uni(),
                     arreglo[i].getTotal(),
                     arreglo[i].getFecha(), };
             tablafacturas.addRow(newRow);
@@ -124,18 +125,18 @@ class Arreglo {
     }
 
     /* Metodo para generar una cierta cantidad de registros aleatoriamente */
-    public void facturacionAleatoria(int num) {
-        long EndTime;
-        long startTime = System.currentTimeMillis();
-        for (int i = 0; i < num; i++) {
-            insert(new Factura(new Random().nextInt((num)) + 1,
-                    new Random().nextInt((500)) + 1000,
-                    new Random().nextInt((100)) + 1,
-                    (new Random().nextInt((50)) + 1) * 10000,
-                    new Date()));
-        }
-        EndTime = (System.currentTimeMillis() - startTime);
-        System.out.println(EndTime);
-    }
+//    public void facturacionAleatoria(int num) {
+//        long EndTime;
+//        long startTime = System.currentTimeMillis();
+//        for (int i = 0; i < num; i++) {
+//            insert(new Factura(new Random().nextInt((num)) + 1,
+//                    new Random().nextInt((500)) + 1000,
+//                    new Random().nextInt((100)) + 1,
+//                    (new Random().nextInt((50)) + 1) * 10000,
+//                    new Date()));
+//        }
+//        EndTime = (System.currentTimeMillis() - startTime);
+//        System.out.println(EndTime);
+//    }
 
 }

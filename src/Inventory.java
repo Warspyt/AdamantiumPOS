@@ -22,7 +22,7 @@ public class Inventory {
         }
         return false;
     }
-    public void Insertar(String tipo, int id, int precDistribuidor, int precVenta, int cant){
+    public void Insertar( int id,String tipo, int precDistribuidor, int precVenta, int cant){
         Objeto nodito = new Objeto(id, tipo, precDistribuidor, precVenta, cant);
         if(estaVacia()==true){
             head=nodito;
