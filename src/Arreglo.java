@@ -1,4 +1,6 @@
 import javax.swing.JFrame;
+import java.util.Random;
+import java.util.Date;
 
 /* Estructura lineal de una lista implementando un arreglo */
 class Arreglo {
@@ -8,10 +10,6 @@ class Arreglo {
     private int count;
     private int position;
     private Factura arreglo[];
-
-    public void setSize(int size) {
-        this.size = size;
-    }
 
     /* Constructor con el parametro de tamaño */
     public Arreglo(int size) {
@@ -102,7 +100,7 @@ class Arreglo {
     }
 
     /* Metodo para mostrar las facturas */
-    public void PrintFacturas() {
+    public void printFacturas() {
         TablaFactura tablafacturas = new TablaFactura();
 
         int i = 0;
@@ -115,10 +113,26 @@ class Arreglo {
             tablafacturas.addRow(newRow);
             i++;
         }
-        JFrame mimarco = tablafacturas;
-        mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mimarco.setVisible(true);
 
+        JFrame mimarco = tablafacturas;
+        mimarco.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mimarco.setVisible(true);
+        while (mimarco.isShowing()) {
+            mimarco.setVisible(true);
+        }
+
+    }
+
+    /* Metodo para generar una cierta cantidad de registros aleatoriamente */
+    public void facturacionAleatoria(int num) {
+        // Random random = new Random();
+        for (int i = 0; i < num; i++) {
+            insert(new Factura(new Random().nextInt((num)) + 1,
+                    new Random().nextInt((500)) + 1000,
+                    new Random().nextInt((100)) + 1,
+                    (new Random().nextInt((50)) + 1) * 10000,
+                    new Date()));
+        }
     }
 
 }
