@@ -2,50 +2,50 @@ public class Lista_DE{
     Node head, tail;
 
     public Lista_DE(){
-        head=tail=null;
+        this.head=this.tail=null;
     }
 
     public boolean isEmpty(){
-        return head == null && tail == null;
+        return this.head == null && this.tail == null;
     }
 
     public void pushFront(int data){
         Node N=new Node(data);
         if(isEmpty()){
-            head=N;
-            tail=N;
+            this.head=N;
+            this.tail=N;
         }
         else{
-            N.next=head;
-            head.prev=N;
+            N.next=this.head;
+            this.head.prev=N;
         }
-        head=N;
+        this.head=N;
     }
 
     public void pushBack(int data){
         Node N=new Node(data);
         if(isEmpty()){
-            head=N;
-            tail=N;
+            this.head=N;
+            this.tail=N;
         }
         else{
-            tail.next=N;
-            N.prev=tail;
+            this.tail.next=N;
+            N.prev=this.tail;
         }
-        tail=N;
+        this.tail=N;
     }
 
     public void popFront(){
         if(isEmpty()){
             System.out.println("Lista vacía, no se puede eliminar");
         }
-        else if(head == tail){
-            head=null;
-            tail=null;
+        else if(this.head == this.tail){
+            this.head=null;
+            this.tail=null;
         }
         else{
-            head=head.getNext();
-            head.prev=null;
+            this.head=this.head.getNext();
+            this.head.prev=null;
         }
     }
 
@@ -53,31 +53,41 @@ public class Lista_DE{
         if(isEmpty()){
             System.out.println("Lista vacía, no se puede eliminar");
         }
-        else if(head == tail){
-            head=null;
-            tail=null;
+        else if(this.head == this.tail){
+            this.head=null;
+            this.tail=null;
         }
         else{
-            tail=tail.prev;
-            tail.next=null;
+            this.tail=this.tail.prev;
+            this.tail.next=null;
         }
     }
 
     public Node find(int Key){
-        Node N = head;
-        while(N.getNext() != null){
+        Node N = this.head;
+        while(N != null){
             if(N.getData() != Key){
                 N =N.getNext();
             }
             return N;
         }
         System.out.println("No se ha encontrado el elemento en la lista");
-        return null;
+        return N;
     }
 
     public boolean erase(int Key){
         Node N = find(Key);
         if(N != null){
+            if(N == this.head){
+                this.popFront();
+                return true;
+            }
+
+            if(N == this.tail){
+                this.popBack();
+                return true;
+            }
+
             N.getPrev().setNext(N.getNext());
             N.getNext().setPrev(N.getPrev());
             return true;
@@ -90,11 +100,11 @@ public class Lista_DE{
         if(isEmpty()){
             System.out.println("Lista vacía");
         }
-        else if(head == tail){
-            System.out.println(head.getData());
+        else if(this.head == this.tail){
+            System.out.println(this.head.getData());
         }
         else{
-            Node aux=head;
+            Node aux=this.head;
             while(aux != null){
                 System.out.println(aux.getData()+" ");
                 aux=aux.getNext();
@@ -103,3 +113,4 @@ public class Lista_DE{
     }
 
 }
+

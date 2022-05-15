@@ -1,5 +1,5 @@
 public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla en la lista inventario ***
-    String id;
+    int id;
     String nombre;
     int precio;
     int costo;
@@ -8,7 +8,7 @@ public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla 
     N_tuple next;
     N_tuple prev;
 
-    public N_tuple(String id,String nombre,int precio, int costo,int cantidad, int tope){
+    public N_tuple(int id,String nombre,int precio, int costo,int cantidad, int tope){
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -19,7 +19,7 @@ public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla 
         this.prev = null;
     }
 
-    public N_tuple(String id){  // ***<--- este es para que la facturacion encuentre el precio del producto
+    public N_tuple(int id){  // ***<--- este es para que la facturacion encuentre el precio del producto
         this.id = id;
         this.nombre = "";
         this.precio = 0;
@@ -30,16 +30,16 @@ public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla 
         this.prev = null;
     }
 
-    String getId() {
-        return id;
+    int getId() {
+        return this.id;
     }
 
-    void setId(String id) {
+    void setId(int id) {
         this.id = id;
     }
 
     String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     void setNombre(String nombre) {
@@ -47,7 +47,7 @@ public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla 
     }
 
     int getPrecio() {
-        return precio;
+        return this.precio;
     }
 
     void setPrecio(int precio) {
@@ -55,7 +55,7 @@ public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla 
     }
 
     public int getCosto() {
-        return costo;
+        return this.costo;
     }
 
     public void setCosto(int costo) {
@@ -63,15 +63,15 @@ public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla 
     }
 
     int getCantidad() {
-        return cantidad;
+        return this.cantidad;
     }
 
     void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+        this.cantidad += cantidad;
     }
 
     int getTope() {
-        return tope;
+        return this.tope;
     }
 
     void setTope(int tope) {
@@ -87,7 +87,7 @@ public class N_tuple extends Node{  //*** Heredado del nodo para hacer de tupla 
     }
 
     public N_tuple getPrev() {
-        return prev;
+        return this.prev;
     }
 
     public void setPrev(N_tuple prev) {

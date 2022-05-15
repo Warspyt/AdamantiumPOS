@@ -5,27 +5,36 @@ public class Main {
     public static void main(String[] args){
 
         Inventory L = new Inventory();
-        L.pushBack("2fjk2","pantalon",31000,15000,18,18);
-        L.pushBack("2asfq","camisa",21000,11000,18,18);
-        L.pushBack("1245f2","pijama",40000,20000,18,18);
-        L.erase("1245f2");
-        L.pushBack("f1231","medias",33000,15000,18,18);
-        L.pushBack("345yu","gorra",50000,35000,18,18);
+        L.pushBack(1,"pantalon",31000,15000,18,18);
+        L.pushBack(2,"camisa",21000,11000,18,18);
+        L.pushBack(3,"pijama",40000,20000,18,18);
+        L.pushBack(4,"medias",33000,15000,18,18);
+        L.pushBack(5,"gorra",50000,35000,18,18);
+        L.erase(4);
+
+        L.find(1).setCantidad(-2);
+        L.find(5).setCantidad(-2);
+
+        L.imprimir_inventario();
 
         Fact_database F = new Fact_database();
 
-        F.pushBack("f1","pepe","13/05","2fjk2",3,L);
-        F.pushBack("f2","marco","13/05","2asfq",2,L);
-        F.pushBack("f3","marco","13/05","2asfq",4,L);
-        F.erase("f2",L);
-        F.pushB_and_print("f1","pepe","13/05","345yu",3,L);
+        F.pushBack(1,"pepe","13/05",2,3,L);
+        F.pushBack(2,"marco","13/05",2,2,L);
+        F.pushBack(3,"antonio","13/05",2,4,L);
+        F.pushBack(4,"hermeregildancio","13/05",3,4,L);
+        F.erase(1,L);
+        F.pushB_and_print(5,"pepe","13/05",5,3,L);
 
+        L.imprimir_inventario();
         L.imprimir_pedido();
+        F.imprimir_fact(2,L);
+        F.imprimir_fact(3,L);
+        F.imprimir_fact(4,L);
+        F.imprimir_fact(5,L);
 
         F.finanzas(L);
 
-        // *** Falta hacer depuracion porque las funciones erase arrojan null pointer exeption en algunos casos, se hacen muchos
-        // llamados incesesarios en algunos metodos y el metodo finanzas aun no funciona
+
     }
 }
-

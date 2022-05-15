@@ -1,13 +1,13 @@
 public class N_facture extends Node{
-    String idFact;
+    int idFact;
     String cliente;
     String fecha;
-    String idProducto;
+    int idProducto;
     int cantProducto;
     N_facture next;
     N_facture prev;
 
-    public N_facture(String idFact, String cliente, String fecha, String idProducto, int cantProducto){
+    public N_facture(int idFact, String cliente, String fecha, int idProducto, int cantProducto){
         this.idFact = idFact;
         this.cliente = cliente;
         this.fecha = fecha;
@@ -17,16 +17,16 @@ public class N_facture extends Node{
         this.prev = null;
     }
 
-    public String getIdFact() {
-        return idFact;
+    public int getIdFact() {
+        return this.idFact;
     }
 
-    public void setIdFact(String idFact) {
+    public void setIdFact(int idFact) {
         this.idFact = idFact;
     }
 
     public String getCliente() {
-        return cliente;
+        return this.cliente;
     }
 
     public void setCliente(String cliente) {
@@ -34,23 +34,23 @@ public class N_facture extends Node{
     }
 
     public String getFecha() {
-        return fecha;
+        return this.fecha;
     }
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public String getIdProducto() {
-        return idProducto;
+    public int getIdProducto() {
+        return this.idProducto;
     }
 
-    public void setIdProducto(String idProducto) {
+    public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
 
     public int getCantProducto() {
-        return cantProducto;
+        return this.cantProducto;
     }
 
     public void setCantProducto(int cantProducto) {
@@ -59,7 +59,7 @@ public class N_facture extends Node{
 
     @Override
     public N_facture getNext() {
-        return next;
+        return this.next;
     }
 
     public void setNext(N_facture next) {
@@ -68,7 +68,7 @@ public class N_facture extends Node{
 
     @Override
     public N_facture getPrev() {
-        return prev;
+        return this.prev;
     }
 
     public void setPrev(N_facture prev) {

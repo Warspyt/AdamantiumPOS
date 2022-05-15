@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Fact_database extends Lista_DE{
     N_facture head, tail;
 
@@ -8,45 +6,85 @@ public class Fact_database extends Lista_DE{
     }
 
     public boolean isEmpty() {
-        return head == null && tail == null;
+        return this.head == null && this.tail == null;
     }
 
-    public void pushBack(String idFact, String cliente, String fecha, String idProducto, int cantProducto, Inventory inventario){
+    public void pushBack(int idFact, String cliente, String fecha, int idProducto, int cantProducto, Inventory inventario){
         N_facture N=new N_facture(idFact, cliente, fecha, idProducto, cantProducto);
         if(isEmpty()){
-            head=N;
-            tail=N;
+            this.head=N;
         }
         else{
-            tail.next=N;
-            N.prev=tail;
+            this.tail.next=N;
+            N.prev=this.tail;
         }
-        tail=N;
+        this.tail=N;
 
         N_tuple M = new N_tuple(idProducto);
         M = inventario.find(idProducto);
-        M.setCantidad(M.getCantidad() - cantProducto);
+        M.setCantidad(-cantProducto);
     }
 
-    public N_facture find(String idFactura) {
-        N_facture N = head;
-        while(N != null){
-            if(!Objects.equals(N.getIdFact(), idFactura)){
-                N =N.getNext();
-            }
-            return N;
+    public void popFront(){
+        if(isEmpty()){
+            System.out.println("Base de datos vacía, no se puede eliminar");
         }
-        System.out.println("No se ha encontrado la factura en la base de datos");
+        else if(this.head == this.tail){
+            this.head=null;
+            this.tail=null;
+        }
+        else{
+            this.head=this.head.getNext();
+            this.head.prev=null;
+        }
+    }
+
+    public void popBack(){
+        if(isEmpty()){
+            System.out.println("Base de datos vacía, no se puede eliminar");
+        }
+        else if(this.head == this.tail){
+            this.head=null;
+            this.tail=null;
+        }
+        else{
+            this.tail=this.tail.prev;
+            this.tail.next=null;
+        }
+    }
+
+    public N_facture find(int idFactura) {
+        N_facture N = this.head;
+        while(N != null){
+            if(N.getIdFact() == idFactura){
+                return N;
+            }
+            if(N.getNext() == null){
+                System.out.println("No se ha encontrado la factura en la base de datos");
+                return null;
+            }
+            N = N.getNext();
+        }
         return null;
     }
 
-    public boolean erase(String idFactura, Inventory inventario) {
+    public boolean erase(int idFactura, Inventory inventario) {
         N_facture N = find(idFactura);
         if(N != null){
 
             N_tuple M = new N_tuple(N.getIdProducto());  // *** <------ regresando el inventario de la factura eliminada
             M = inventario.find(N.getIdProducto());
-            M.setCantidad(M.getCantidad() + N.getCantProducto());
+            M.setCantidad(N.getCantProducto());
+
+            if(N == this.head){
+                this.popFront();
+                return true;
+            }
+
+            if(N == this.tail){
+                this.popBack();
+                return true;
+            }
 
             N.getPrev().setNext(N.getNext());
             N.getNext().setPrev(N.getPrev());
@@ -56,7 +94,7 @@ public class Fact_database extends Lista_DE{
         return false;
     }
 
-    public void imprimir_fact(String idFactura, Inventory inventario){
+    public void imprimir_fact(int idFactura, Inventory inventario){
         N_facture N = find(idFactura);
         N_tuple M = new N_tuple(N.getIdProducto());
         M = inventario.find(M.getId());
@@ -69,22 +107,22 @@ public class Fact_database extends Lista_DE{
         System.out.println("Total a pagar: $"+( M.getPrecio() * N.getCantProducto() ));
     }
 
-    public void pushB_and_print(String idFact, String cliente, String fecha, String idProducto, int cantProducto, Inventory inventario){
+    public void pushB_and_print(int idFact, String cliente, String fecha, int idProducto, int cantProducto, Inventory inventario){
         N_facture N=new N_facture(idFact, cliente, fecha, idProducto, cantProducto);
         if(isEmpty()){
-            head=N;
-            tail=N;
+            this.head=N;
+            this.tail=N;
         }
         else{
-            tail.next=N;
-            N.prev=tail;
+            this.tail.next=N;
+            N.prev=this.tail;
         }
-        tail=N;
+        this.tail=N;
 
         N_tuple M = new N_tuple(idProducto);
         M = inventario.find(idProducto);
 
-        M.setCantidad(M.getCantidad() - cantProducto);
+        M.setCantidad(-cantProducto);
 
         System.out.println("Factura de compra "+N.getIdFact());
         System.out.println("Cliente: "+N.getCliente());
@@ -96,8 +134,8 @@ public class Fact_database extends Lista_DE{
     }
 
     public void finanzas(Inventory inventario){
-        N_facture N = head;
-        N_tuple M = new N_tuple("");
+        N_facture N = this.head;
+        N_tuple M = new N_tuple(0);
         int numVentas = 0;
         int cantProductosVendidos = 0;
         int ventaTotal = 0;
@@ -111,6 +149,15 @@ public class Fact_database extends Lista_DE{
             ventaTotal += ( M.getPrecio() * N.getCantProducto() );
             retornoCapital += ( M.getCosto() * N.getCantProducto() );
             ganancias += ( (M.getPrecio() - M.getCosto()) * N.getCantProducto() );
+
+            N = N.getNext();
         }
+
+        System.out.println("BALANCE FINANCIERO:");
+        System.out.println("Número total de ventas: "+numVentas);
+        System.out.println("Cantidad de productos vendidos: "+cantProductosVendidos);
+        System.out.println("venta total: "+ventaTotal);
+        System.out.println("Retorno a capital: "+retornoCapital);
+        System.out.println("ganancias: "+ganancias);
     }
 }
