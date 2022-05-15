@@ -9,7 +9,8 @@ public class Main {
 
         // Creacion del arreglo para guardar las facturas
         Arreglo Facturacion;
-        Facturacion = new Arreglo(10);
+        Facturacion = new Arreglo(200);
+        Facturacion.facturacionAleatoria(100);
         // Inventory inventario;
         // inventario = new Inventory();
 
@@ -112,7 +113,7 @@ public class Main {
                             break;
                         case 3:
                             /* Mostrar la facturacion en una tabla */
-                            Facturacion.PrintFacturas();
+                            Facturacion.printFacturas();
                             break;
                         default:
                             JOptionPane.showMessageDialog(null, "Inserte una opción válida");
