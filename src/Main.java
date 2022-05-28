@@ -38,7 +38,7 @@ public class Main {
                                     + "\n5: Precio de Venta de un producto"
                                     + "\n6: Modificar Cantidad de un producto"
                                     + "\n7: Modificar Precio Distribuidor producto"
-                                    + "\n6: Modificar Precio Venta producto"));
+                                    + "\n8: Modificar Precio Venta producto"));
                     switch (optionInventario) {
                         case 1:
                             inventario.Insertar(JOptionPane.showInputDialog("Inserte el nombre del producto"),
@@ -53,17 +53,17 @@ public class Main {
                             break;
                         case 3:
                             Objeto searchCantidad = inventario
-                            .Search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
+                            .search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
                             JOptionPane.showMessageDialog(null, "Hay " + searchCantidad.getCantidad() + " unidades");
                             break;
                         case 4:
                             Objeto searchPrecioDistribuidor = inventario
-                            .Search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
+                            .search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
                             JOptionPane.showMessageDialog(null, "El producto cuesta " + searchPrecioDistribuidor.getPrecio_distribuidor() + " pesos");
                             break;
                         case 5:
                             Objeto searchPrecioVenta = inventario
-                            .Search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
+                            .search(Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")));
                             JOptionPane.showMessageDialog(null, "El producto cuesta " + searchPrecioVenta.getPrecio_venta() + " pesos");
                             break;
                         case 6:
@@ -78,7 +78,7 @@ public class Main {
                             JOptionPane.showInputDialog("Inserte el nuevo precio del producto")));
                             break;
                         case 8:
-                            inventario.ModificarPrecioDistribuidor(
+                            inventario.ModificarPrecioVenta(
                             Integer.parseInt(JOptionPane.showInputDialog("Inserte la id(o referencia) del producto")),
                             Integer.parseInt(
                             JOptionPane.showInputDialog("Inserte el nuevo precio del producto")));

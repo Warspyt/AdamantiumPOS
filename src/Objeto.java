@@ -1,10 +1,10 @@
 public class Objeto {
-    int id;
-    String nombre;
-    int precio_distribuidor;
-    int precio_venta;
-    int cantidad;
-    Objeto next,prev;
+    private int id,altura;
+    private String nombre;
+    private int precio_distribuidor;
+    private int precio_venta;
+    private int cantidad;
+    private Objeto leftChild,rightChild;
 
     public Objeto()
     {
@@ -13,6 +13,7 @@ public class Objeto {
         this.precio_distribuidor=0;
         this.precio_venta=0;
         this.cantidad=0;
+        this.altura=0;
     }
     public Objeto(int id,String nombre,int precio_dis,int precio_ven,int cantidad)
     {
@@ -21,8 +22,15 @@ public class Objeto {
         this.precio_distribuidor=precio_dis;
         this.precio_venta=precio_ven;
         this.cantidad=cantidad;
+        this.altura=0;
     }
 
+    public int getAltura(){
+        return this.altura;
+    }
+    public void setAltura(int altura){
+        this.altura=altura;
+    }
     public int getId() {
         return id;
     }
@@ -62,18 +70,19 @@ public class Objeto {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-    public Objeto getNext(){
-        return next;
+    public Objeto getLeftChild(){
+        return leftChild;
     }
-    public void setNext(Objeto next){
-        this.next = next;
+    public void setLeftChild(Objeto leftChild){
+        this.leftChild = leftChild;
     }
-    public Objeto getPrev(){
-        return prev;
+    public Objeto getRightChild(){
+        return rightChild;
     }
-    public void setPrev(Objeto prev){
-        this.prev = prev;
+    public void setRightChild(Objeto rightChild){
+        this.rightChild= rightChild;
     }
+    
 
     @Override
     public String toString() {
