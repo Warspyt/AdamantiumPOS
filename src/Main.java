@@ -22,9 +22,11 @@ public class Main {
         // Inventario creado en el arbol BST
         BstInventario inventario2;
         inventario2 = new BstInventario();
+
+        // Productos de prueba para el arbol BST
         Producto item1 = new Producto(12, "Camisa", 30000, 40000, 10);
-        Producto item2 = new Producto(7, "Camisa2", 30000, 40000, 10);
-        Producto item3 = new Producto(15, "Camisa3", 30000, 40000, 10);
+        Producto item2 = new Producto(7, "Blusa", 10000, 15000, 20);
+        Producto item3 = new Producto(15, "Zapatos", 50000, 85000, 8);
 
         inventario2.insert(item1, inventario2.getRaiz());
         inventario2.insert(item2, inventario2.getRaiz());
@@ -41,6 +43,7 @@ public class Main {
 
             switch (option) {
                 case 1:
+                    /* Seleccionar si se quiere manipular el inventario con un arbol AVL o BST */
                     int optionEstructura = Integer
                             .parseInt(JOptionPane
                                     .showInputDialog("Elija la estructura con la que desea realizar la accion: "
@@ -49,6 +52,7 @@ public class Main {
 
                     switch (optionEstructura) {
                         case 1:
+                            /* Analizar inventario con AVL */
                             int optionInventario = Integer
                                     .parseInt(JOptionPane.showInputDialog("Elija una opción para comenzar, "
                                             + "\n1: Agregar producto"
@@ -127,6 +131,8 @@ public class Main {
 
                         // Analizar inventario con arbol BST
                         case 2:
+
+                            /* Opciones para la manipulacion del inventario */
                             int optionInventario2 = Integer
                                     .parseInt(JOptionPane.showInputDialog("Elija una opción para comenzar, "
                                             + "\n1: Agregar producto"
@@ -142,6 +148,7 @@ public class Main {
                             switch (optionInventario2) {
 
                                 case 1:
+                                    /* Creacion de un nuevo producto para agregar al inventario en el BST */
                                     Producto newitem = new Producto(
                                             Integer.parseInt(JOptionPane
                                                     .showInputDialog("Inserte la id(o referencia) del producto")),
@@ -157,12 +164,15 @@ public class Main {
 
                                     break;
                                 case 2:
+                                    /* Eliminacion de un producto en el inventario */
                                     break;
                                 case 3:
+                                    /* Se muestran las cantidades existentes de un determinado producto */
                                     Producto item_U = inventario2.search(Integer.parseInt(JOptionPane
                                             .showInputDialog("Inserte la id(o referencia) del producto")),
                                             inventario2.getRaiz());
 
+                                    // Se verifica que el producto se encuentre en el arbol BST
                                     if (item_U != null) {
                                         JOptionPane.showMessageDialog(null,
                                                 "Producto: " + item_U.getNombre() + "\n\n" + item_U.getCantidad()
@@ -174,9 +184,12 @@ public class Main {
 
                                     break;
                                 case 4:
+                                    /* Se muestra el precio de distribuidor de un determinado producto */
                                     Producto item_Pd = inventario2.search(Integer.parseInt(JOptionPane
                                             .showInputDialog("Inserte la id(o referencia) del producto")),
                                             inventario2.getRaiz());
+
+                                    // Se verifica que el producto se encuentre en el arbol BST
                                     if (item_Pd != null) {
                                         JOptionPane.showMessageDialog(null,
                                                 "Producto: " + item_Pd.getNombre() + "\n\n"
@@ -188,10 +201,12 @@ public class Main {
                                     }
                                     break;
                                 case 5:
+                                    /* Se muestra el precio de venta de un determinado producto */
                                     Producto item_Pv = inventario2.search(Integer.parseInt(JOptionPane
                                             .showInputDialog("Inserte la id(o referencia) del producto")),
                                             inventario2.getRaiz());
 
+                                    // Se verifica que el producto se encuentre en el arbol BST
                                     if (item_Pv != null) {
                                         JOptionPane.showMessageDialog(null,
                                                 "Producto: " + item_Pv.getNombre() + "\n\n" + item_Pv.getPrecio_venta()
@@ -202,6 +217,7 @@ public class Main {
                                     }
                                     break;
                                 case 6:
+                                    /* Se modifica la cantidad de un determinado producto */
                                     try {
                                         inventario2.search(Integer.parseInt(JOptionPane
                                                 .showInputDialog("Inserte la id(o referencia) del producto")),
@@ -214,6 +230,7 @@ public class Main {
                                     }
                                     break;
                                 case 7:
+                                    /* Se modifica el precio de distribuidor de un determinado producto */
                                     try {
                                         inventario2.search(Integer.parseInt(JOptionPane
                                                 .showInputDialog("Inserte la id(o referencia) del producto")),
@@ -226,6 +243,7 @@ public class Main {
                                     }
                                     break;
                                 case 8:
+                                    /* Se modifica el precio de venta de un determinado producto */
                                     try {
                                         inventario2.search(Integer.parseInt(JOptionPane
                                                 .showInputDialog("Inserte la id(o referencia) del producto")),
@@ -238,6 +256,7 @@ public class Main {
                                     }
                                     break;
                                 case 9:
+                                    /* Se muestra el inventario del arbol BST a traves de una tabla */
                                     inventario2.printInventario();
                                     break;
 
