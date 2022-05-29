@@ -27,7 +27,7 @@ public class BstInventario {
 
     /*
      * Metodo para insertar un nuevo producto en el arbol BST
-     * (el orden esta dado por el id de referencia de los productos
+     * (el orden esta dado por el id de referencia de los productos)
      */
     public NodeBst insert(Producto item, NodeBst nodo) {
         if (empty()) {
@@ -53,6 +53,83 @@ public class BstInventario {
                 else {
                     System.out.println("El elemento ya se encuentra en el inventario");
                 }
+            }
+        }
+
+        return nodo;
+    }
+
+    /* Metodo para eliminar un producto en el arbol BST */
+    public NodeBst remove(int id, NodeBst nodo, NodeBst prevNode) {
+        NodeBst item;
+
+        if (empty() || nodo == null) {
+            System.out.println("No se encontro el producto");
+            item = null;
+            return item;
+        } else if (nodo.getdata().getId() == id) {
+            item = nodo;
+
+            // Si el nodo no tiene hijos
+            if (nodo.getLeftChild() == null && nodo.getRightChild() == null) {
+                if (prevNode.getRightChild() == nodo) {
+                    prevNode.setRightChild(null);
+                } else if (prevNode.getLeftChild() == nodo) {
+                    prevNode.setLeftChild(null);
+                }
+            }
+
+            // si el nodo tiene dos hijos
+            else if (nodo.getLeftChild() != null && nodo.getRightChild() != null) {
+                NodeBst copyMinNode = minNode(nodo.getRightChild());
+
+                if (prevNode.getRightChild() == nodo) {
+                    prevNode.setRightChild(copyMinNode);
+                } else if (prevNode.getLeftChild() == nodo) {
+                    prevNode.setLeftChild(copyMinNode);
+                }
+
+                remove(copyMinNode.getdata().getId(), nodo, nodo);
+            }
+
+            // si el nodo tiene un hijo derecho
+            else if (nodo.getRightChild() != null) {
+                NodeBst copyNode = nodo.getRightChild();
+
+                if (prevNode.getRightChild() == nodo) {
+                    prevNode.setRightChild(copyNode);
+                } else if (prevNode.getLeftChild() == nodo) {
+                    prevNode.setLeftChild(copyNode);
+                }
+            }
+
+            // si el nodo tiene un hijo izquierdo
+            else if (nodo.getLeftChild() != null) {
+                NodeBst copyNode = nodo.getLeftChild();
+
+                if (prevNode.getRightChild() == nodo) {
+                    prevNode.setRightChild(copyNode);
+                } else if (prevNode.getLeftChild() == nodo) {
+                    prevNode.setLeftChild(copyNode);
+                }
+            }
+
+            return item;
+        } else {
+            if (id < nodo.getdata().getId()) {
+                item = remove(id, nodo.getLeftChild(), nodo);
+            } else {
+                item = remove(id, nodo.getRightChild(), nodo);
+            }
+        }
+
+        return item;
+    }
+
+    private NodeBst minNode(NodeBst nodo) {
+        if (nodo != null) {
+            while (nodo.getLeftChild() != null) {
+                nodo = nodo.getLeftChild();
             }
         }
 

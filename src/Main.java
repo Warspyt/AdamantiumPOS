@@ -165,6 +165,13 @@ public class Main {
                                     break;
                                 case 2:
                                     /* Eliminacion de un producto en el inventario */
+                                    try {
+                                        inventario2.remove(Integer.parseInt(JOptionPane
+                                                .showInputDialog("Inserte la id(o referencia) del producto")),
+                                                inventario2.getRaiz(), inventario2.getRaiz());
+                                    } catch (Exception e) {
+                                        System.out.println("No se pudo eliminar el producto");
+                                    }
                                     break;
                                 case 3:
                                     /* Se muestran las cantidades existentes de un determinado producto */
