@@ -1,17 +1,22 @@
 import javax.swing.JFrame;
 
+/* Clase para generar un arbol BST */
 public class BstInventario {
 
+    /* Atributos del arbol BST */
     private NodeBst raiz;
 
+    /* Constructor de la clase BstInventario sin parametros */
     public BstInventario() {
         raiz = null;
     }
 
+    /* Metodo get para el atributo raiz */
     public NodeBst getRaiz() {
         return this.raiz;
     }
 
+    /* Metodo para verificar si el arbol BST se encuentra vacio */
     private boolean empty() {
         if (raiz != null) {
             return false;
@@ -20,6 +25,10 @@ public class BstInventario {
         }
     }
 
+    /*
+     * Metodo para insertar un nuevo producto en el arbol BST
+     * (el orden esta dado por el id de referencia de los productos
+     */
     public NodeBst insert(Producto item, NodeBst nodo) {
         if (empty()) {
             this.raiz = new NodeBst(item);
@@ -50,6 +59,11 @@ public class BstInventario {
         return nodo;
     }
 
+    /*
+     * Metodo para buscar mediante el id un determinado producto,
+     * se usa para imprimir el inventario o modificar los atributos
+     * de un item
+     */
     public Producto search(int id, NodeBst nodo) {
         Producto item;
 
@@ -71,7 +85,7 @@ public class BstInventario {
         return item;
     }
 
-    /* Metodo para mostrar las facturas */
+    /* Metodo para mostrar el inventario */
     public void printInventario() {
         TablaInventario tablaInventario = new TablaInventario();
 
@@ -86,6 +100,11 @@ public class BstInventario {
 
     }
 
+    /*
+     * Metodo para agregar a la tabla en orden ascendente segun el id,
+     * los productos del BST (la funcion hace recursion hasta que se
+     * agregan todos los elementos y luego es llamada en el metodo printInventario)
+     */
     private void addrows(TablaInventario inventario, NodeBst nodo) {
         if (nodo.getRightChild() != null) {
             addrows(inventario, nodo.getRightChild());
