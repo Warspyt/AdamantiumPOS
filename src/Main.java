@@ -163,34 +163,79 @@ public class Main {
                                             .showInputDialog("Inserte la id(o referencia) del producto")),
                                             inventario2.getRaiz());
 
-                                    JOptionPane.showMessageDialog(null,
-                                            "Producto: " + item_U.getNombre() + "\n\n" + item_U.getCantidad()
-                                                    + " unidades");
+                                    if (item_U != null) {
+                                        JOptionPane.showMessageDialog(null,
+                                                "Producto: " + item_U.getNombre() + "\n\n" + item_U.getCantidad()
+                                                        + " unidades");
+                                    } else {
+                                        JOptionPane.showMessageDialog(null,
+                                                "No se encontro el producto");
+                                    }
+
                                     break;
                                 case 4:
                                     Producto item_Pd = inventario2.search(Integer.parseInt(JOptionPane
                                             .showInputDialog("Inserte la id(o referencia) del producto")),
                                             inventario2.getRaiz());
-
-                                    JOptionPane.showMessageDialog(null,
-                                            "Producto: " + item_Pd.getNombre() + "\n\n"
-                                                    + item_Pd.getPrecio_distribuidor()
-                                                    + " pesos");
+                                    if (item_Pd != null) {
+                                        JOptionPane.showMessageDialog(null,
+                                                "Producto: " + item_Pd.getNombre() + "\n\n"
+                                                        + item_Pd.getPrecio_distribuidor()
+                                                        + " pesos");
+                                    } else {
+                                        JOptionPane.showMessageDialog(null,
+                                                "No se encontro el producto");
+                                    }
                                     break;
                                 case 5:
                                     Producto item_Pv = inventario2.search(Integer.parseInt(JOptionPane
                                             .showInputDialog("Inserte la id(o referencia) del producto")),
                                             inventario2.getRaiz());
 
-                                    JOptionPane.showMessageDialog(null,
-                                            "Producto: " + item_Pv.getNombre() + "\n\n" + item_Pv.getPrecio_venta()
-                                                    + " pesos");
+                                    if (item_Pv != null) {
+                                        JOptionPane.showMessageDialog(null,
+                                                "Producto: " + item_Pv.getNombre() + "\n\n" + item_Pv.getPrecio_venta()
+                                                        + " pesos");
+                                    } else {
+                                        JOptionPane.showMessageDialog(null,
+                                                "No se encontro el producto");
+                                    }
                                     break;
                                 case 6:
+                                    try {
+                                        inventario2.search(Integer.parseInt(JOptionPane
+                                                .showInputDialog("Inserte la id(o referencia) del producto")),
+                                                inventario2.getRaiz()).setCantidad(
+                                                        Integer.parseInt(JOptionPane
+                                                                .showInputDialog(
+                                                                        "Inserte la nueva cantidad del producto")));
+                                    } catch (Exception e) {
+                                        System.out.println("No se pudo modificar la cantidad");
+                                    }
                                     break;
                                 case 7:
+                                    try {
+                                        inventario2.search(Integer.parseInt(JOptionPane
+                                                .showInputDialog("Inserte la id(o referencia) del producto")),
+                                                inventario2.getRaiz()).setPrecio_distribuidor(
+                                                        Integer.parseInt(JOptionPane
+                                                                .showInputDialog(
+                                                                        "Inserte el nuevo precio de distribuidor del producto")));
+                                    } catch (Exception e) {
+                                        System.out.println("No se pudo modificar el precio de distribuidor");
+                                    }
                                     break;
                                 case 8:
+                                    try {
+                                        inventario2.search(Integer.parseInt(JOptionPane
+                                                .showInputDialog("Inserte la id(o referencia) del producto")),
+                                                inventario2.getRaiz()).setPrecio_venta(
+                                                        Integer.parseInt(JOptionPane
+                                                                .showInputDialog(
+                                                                        "Inserte el nuevo precio de venta del producto")));
+                                    } catch (Exception e) {
+                                        System.out.println("No se pudo modificar el precio de venta");
+                                    }
                                     break;
                                 case 9:
                                     inventario2.printInventario();
