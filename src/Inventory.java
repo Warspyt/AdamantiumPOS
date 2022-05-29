@@ -41,23 +41,23 @@ public class Inventory {
         return(objeto==null)?0 : getHeight(objeto.getRightChild()) - getHeight(objeto.getLeftChild());
     }
 
-    public Objeto rightRotation(Objeto y){
-        Objeto x=y.getLeftChild();
-        Objeto z=x.getRightChild();
-        x.setRightChild(y);
-        y.setLeftChild(z);
-        updateHeight(y);
-        updateHeight(x);
-        return x;
+    public Objeto rightRotation(Objeto objeto){
+        Objeto leftChild=objeto.getLeftChild();
+        Objeto z=leftChild.getRightChild();
+        leftChild.setRightChild(objeto);
+        objeto.setLeftChild(z);
+        updateHeight(objeto);
+        updateHeight(leftChild);
+        return leftChild;
     }
-    public Objeto LeftRotation(Objeto y){
-        Objeto x=y.getRightChild();
-        Objeto z=x.getLeftChild();
-        x.setLeftChild(y);
-        y.setRightChild(z);
-        updateHeight(y);
-        updateHeight(x);
-        return x;
+    public Objeto LeftRotation(Objeto objeto){
+        Objeto rightChild=objeto.getRightChild();
+        Objeto z=rightChild.getLeftChild();
+        rightChild.setLeftChild(objeto);
+        objeto.setRightChild(z);
+        updateHeight(objeto);
+        updateHeight(rightChild);
+        return rightChild;
     }
 
     public Objeto rebalance(Objeto objeto){
@@ -181,8 +181,6 @@ public class Inventory {
         Object[] newRow = {printed.getNombre(),printed.getId(),printed.getPrecio_distribuidor(), printed.getPrecio_venta(),printed.getCantidad()};
         tabla.addRow(newRow);
         print(printed.getLeftChild(), tabla);
-        
-
     }
 }
 
