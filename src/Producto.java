@@ -1,24 +1,18 @@
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
     private int id;
     private String nombre;
     private int precio_distribuidor;
     private int precio_venta;
     private int cantidad;
 
-    public Producto(String name, int id, int pr_d, int pr_v, int ct){
-        this.nombre = name;
+    public Producto(int id, String name, int pr_d, int pr_v, int ct){
         this.id = id;
+        this.nombre = name;
         this.precio_distribuidor = pr_d;
         this.precio_venta = pr_v;
         this.cantidad = ct;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public int getId() {
@@ -27,6 +21,14 @@ public class Producto {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getPrecio_distribuidor() {
@@ -55,8 +57,8 @@ public class Producto {
 
     public void display(){
         System.out.println("- Producto\n"
-                + "Nombre: " + getNombre()
                 + "\nID: " + getId()
+                + "\nNombre: " + getNombre()
                 + "\nPrecio distribuidor: " + getPrecio_distribuidor()
                 + "\nPrecio de venta: " + getPrecio_venta()
                 + "\nCantidad: " + getCantidad());
