@@ -152,13 +152,20 @@ public class Inventory {
     public void ModificarCantidad(int ref, int nuevaCantidad){
         search(ref).setCantidad(nuevaCantidad);
     }
+
     public Objeto search(int ref){
         Objeto searched = root;
-        while(searched != null){
-            if(searched.getId() == ref){
+        boolean check = false;
+        while(searched != null && check!=true){
+            if(searched.getId() < ref){
+                searched = searched.getRightChild();
+            }
+            else if(searched.getId() > ref){
+                searched = searched.getLeftChild();
+            }
+            else{
                 break;
             }
-            searched = searched.getId() < ref? searched.getRightChild():searched.getLeftChild();
         }
         return searched;
     }
