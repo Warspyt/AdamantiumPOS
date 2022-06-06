@@ -52,7 +52,7 @@ public class BstInventario implements Serializable {
                 }
 
                 else {
-                    System.out.println("El elemento ya se encuentra en el inventario");
+                    System.out.println("BST: El elemento ya se encuentra en el inventario");
                 }
             }
         }

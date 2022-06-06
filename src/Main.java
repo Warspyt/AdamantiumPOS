@@ -10,6 +10,7 @@ public class Main {
 
         //Serializadores
         Serialize_Obj<BstInventario> saved_bst = new Serialize_Obj<>();
+        Serialize_Obj<Inventory> saved_avl = new Serialize_Obj<>();
 
         // Creacion del arreglo para guardar las facturas
         Arreglo Facturacion;
@@ -19,9 +20,10 @@ public class Main {
         Inventory inventario;
         inventario = new Inventory();
 
-        inventario.Insertar("Camisar", 302, 30000, 40000, 10);
-        inventario.Insertar("Pantalon", 322, 30000, 35000, 10);
-        inventario.Insertar("Medias", 332, 3000, 10000, 20);
+        //Cargar árbol AVL guardado
+        inventario = saved_avl.ReadObjectFromFile_AVL();
+
+
 
 
         // Inventario creado en el arbol BST
@@ -31,15 +33,16 @@ public class Main {
         //Cargar árbol BST guardado
         inventario2 = saved_bst.ReadObjectFromFile_BST();
 
-
         /*
-        //Generar datos para BSTL
+        //Generar datos para BST y AVL
         for (int i = 1; i <= 100000; i++) {
             String name = Data_Generator.randomString(15);
             int num = Data_Generator.Random();
             inventario2.insert(new Producto(num, name, num + 653, num * 2, num + 62), inventario2.getRaiz());
+            inventario.Insertar(name, num, num + 653, num * 2, num + 62);
         }
          */
+
 
         // Productos de prueba para el arbol BST
         Producto item1 = new Producto(12, "Camisa", 30000, 40000, 10);
@@ -51,10 +54,12 @@ public class Main {
         inventario2.insert(item3, inventario2.getRaiz());
 
         //Guardado antes de cerrar la aplicación
+        Inventory finalInventario = inventario;
         BstInventario finalInventario2 = inventario2;
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
+                saved_avl.WriteObjectToFile(finalInventario);
                 saved_bst.WriteObjectToFile(finalInventario2);
             }
         }));

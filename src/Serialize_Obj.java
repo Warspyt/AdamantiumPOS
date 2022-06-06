@@ -13,6 +13,13 @@ public class Serialize_Obj <T> {
                 objectOut.close();
                 System.out.println("El estado del arbol (BST) ha sido guardado");
             }
+            else if(Obj.getClass()==Inventory.class){
+                FileOutputStream fileOut = new FileOutputStream(filepath + "_avl");
+                ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+                objectOut.writeObject(Obj);
+                objectOut.close();
+                System.out.println("El estado del arbol (AVL) ha sido guardado");
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -25,4 +32,12 @@ public class Serialize_Obj <T> {
         objectIn.close();
         return tree;
     }
+    public T ReadObjectFromFile_AVL() throws IOException, ClassNotFoundException{
+        FileInputStream fileIn = new FileInputStream(filepath + "_avl");
+        ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+        T tree = (T) objectIn.readObject();
+        objectIn.close();
+        return tree;
+    }
+
 }

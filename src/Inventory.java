@@ -5,13 +5,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import java.awt.*;
+import java.io.Serializable;
 
 
 /**
  *
  * @author espin
  */
-public class Inventory {
+public class Inventory implements Serializable {
     Objeto root;
     
     public Inventory(){
@@ -100,7 +101,7 @@ public class Inventory {
             objeto.setRightChild(insertElement(tipo, id, precDistribuidor, precVenta, cant, objeto.getRightChild()));
         }
         else{
-            JOptionPane.showMessageDialog(null, "ID duplicado, inserte nuevo ID");
+            System.out.println("AVL: ID duplicado, inserte nuevo ID");
         }
         return rebalance(objeto);
     }
