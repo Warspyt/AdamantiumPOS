@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adamantiumposavl_interfaz_fx.Controller">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="99.0" style="-fx-background-color: #1e53be;">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/logo_pequeño.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/home.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="10.0" top="46.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/inventory.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="10.0" top="46.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/billing.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="10.0" top="46.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/extras.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="10.0" top="46.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+            <AnchorPane layoutX="101.0" layoutY="49.0" prefHeight="551.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" />
+            <AnchorPane prefHeight="600.0" prefWidth="700.0">
+               <children>
+                  <AnchorPane layoutX="101.0" prefHeight="49.0" prefWidth="700.0" style="-fx-background-color: #c8c8c8;">
+                     <children>
+                        <Text layoutX="282.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adamantium" />
+                        <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio" />
+                     </children>
+                  </AnchorPane>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="376.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/Logo_grande.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="5.0" endY="1.0" fill="BLACK" layoutX="447.0" layoutY="275.0" startX="5.0" startY="279.0" />
+                  <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#f5f5f5" height="150.0" layoutX="224.0" layoutY="240.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="150.0" />
+                  <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#f5f5f5" height="150.0" layoutX="224.0" layoutY="409.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="150.0" />
+                  <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#f5f5f5" height="150.0" layoutX="525.0" layoutY="409.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="150.0" />
+                  <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#f5f5f5" height="150.0" layoutX="525.0" layoutY="240.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="150.0" />
+                  <ImageView fitHeight="139.0" fitWidth="127.0" layoutX="236.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/new_gray.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="176.0" fitWidth="179.0" layoutX="507.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/add_billing_gray.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="224.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/upload_gray.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="525.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mockUps/Icons/upload_bill_gray.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="600.0" prefWidth="700.0">
+               <children>
+                  <AnchorPane prefHeight="600.0" prefWidth="700.0">
+                     <children>
+                        <AnchorPane layoutX="101.0" prefHeight="49.0" prefWidth="700.0" style="-fx-background-color: #c8c8c8;">
+                           <children>
+                              <Text layoutX="282.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adamantium" />
+                              <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventario EXITO 2022" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="107.0" layoutY="122.0" prefHeight="32.0" prefWidth="684.0" visible="false">
+                           <children>
+                              <TextField layoutX="16.0" prefHeight="26.0" prefWidth="165.0" promptText="Nombre del producto" />
+                              <TextField layoutX="201.0" prefHeight="23.0" prefWidth="93.0" promptText="ID" />
+                              <TextField layoutX="320.0" prefHeight="26.0" prefWidth="115.0" promptText="Precio distribuidor" />
+                              <TextField layoutX="460.0" prefHeight="23.0" prefWidth="93.0" promptText="Precio venta" />
+                              <TextField layoutX="575.0" prefHeight="26.0" prefWidth="88.0" promptText="Cantidad" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="179.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="291.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="432.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="551.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="662.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="107.0" layoutY="122.0" prefHeight="32.0" prefWidth="684.0" visible="false">
+                           <children>
+                              <TextField layoutX="16.0" prefHeight="26.0" prefWidth="165.0" promptText="ID del producto a eliminar" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="179.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="107.0" layoutY="122.0" prefHeight="32.0" prefWidth="684.0" visible="false">
+                           <children>
+                              <TextField layoutX="16.0" prefHeight="26.0" prefWidth="165.0" promptText="ID del producto" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="179.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="107.0" layoutY="122.0" prefHeight="32.0" prefWidth="684.0" visible="false">
+                           <children>
+                              <TextField layoutX="16.0" prefHeight="26.0" prefWidth="165.0" promptText="ID del producto" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="179.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="107.0" layoutY="122.0" prefHeight="32.0" prefWidth="684.0" visible="false">
+                           <children>
+                              <TextField layoutX="16.0" prefHeight="26.0" prefWidth="165.0" promptText="ID del producto" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="179.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <TableView layoutX="107.0" layoutY="157.0" prefHeight="436.0" prefWidth="685.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="178.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="115.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="241.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="304.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="367.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="430.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="120.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/add.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="182.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/delete.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="309.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/in_cost_gray.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="245.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/icons8_hash_50px_gray.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="372.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/price_gray.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="434.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/buscar.png" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="493.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="498.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/print_gray.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="600.0" prefWidth="700.0">
+               <children>
+                  <AnchorPane prefHeight="600.0" prefWidth="700.0">
+                     <children>
+                        <AnchorPane layoutX="101.0" prefHeight="49.0" prefWidth="700.0" style="-fx-background-color: #c8c8c8;">
+                           <children>
+                              <Text layoutX="282.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adamantium" />
+                              <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facturación EXITO 2022" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="107.0" layoutY="122.0" prefHeight="32.0" prefWidth="684.0">
+                           <children>
+                              <TextField layoutX="16.0" prefHeight="26.0" prefWidth="91.0" promptText="ID factura" />
+                              <TextField layoutX="156.0" prefHeight="23.0" prefWidth="93.0" promptText="ID producto" />
+                              <TextField layoutX="291.0" prefHeight="26.0" prefWidth="115.0" promptText="Cantidad" />
+                              <TextField layoutX="460.0" prefHeight="23.0" prefWidth="93.0" promptText="Total" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="106.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="249.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="406.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="551.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="107.0" layoutY="122.0" prefHeight="32.0" prefWidth="684.0" visible="false">
+                           <children>
+                              <TextField layoutX="16.0" prefHeight="26.0" prefWidth="165.0" promptText="ID del producto a eliminar" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="179.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../mockUps/Icons/icons8_pencil_100px.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <TableView layoutX="107.0" layoutY="157.0" prefHeight="436.0" prefWidth="685.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                              <TableColumn prefWidth="75.0" text="Column X" />
+                              <TableColumn prefWidth="75.0" text="Column X" />
+                              <TableColumn prefWidth="75.0" text="Column X" />
+                           </columns>
+                        </TableView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="178.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="115.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="241.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <ImageView fitHeight="38.0" fitWidth="43.0" layoutX="120.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/add.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="182.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/delete.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="245.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/buscar.png" />
+                           </image>
+                        </ImageView>
+                        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#f5f5f5" height="49.0" layoutX="304.0" layoutY="64.0" stroke="#d0d0d0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="2.0" width="49.0" />
+                        <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="309.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../mockUps/Icons/print_gray.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
