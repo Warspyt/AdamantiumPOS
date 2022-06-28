@@ -1,20 +1,17 @@
 package ventanas;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author espin
  */
-public class Facturacion extends javax.swing.JPanel {
+public class Pedidos extends javax.swing.JPanel {
 
     /**
-     * Creates new form Facturacion
+     * Creates new form NewJPanel
      */
     Inventory inventario;
-    
-    public Facturacion(Inventory inventario) {
-        this.inventario = inventario;
+    public Pedidos(Inventory inventario) {
+        this.inventario=inventario;
         initComponents();
     }
 
@@ -27,6 +24,12 @@ public class Facturacion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        Finanzas = new javax.swing.JLabel();
+        Pedidos = new javax.swing.JLabel();
+        InventarioOpc = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        Facturación = new javax.swing.JLabel();
         barraGrisSup = new javax.swing.JPanel();
         Ayuda = new javax.swing.JLabel();
         Ventana = new javax.swing.JLabel();
@@ -36,12 +39,6 @@ public class Facturacion extends javax.swing.JPanel {
         Datos = new javax.swing.JLabel();
         Edicion = new javax.swing.JLabel();
         Archivo = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        Finanzas = new javax.swing.JLabel();
-        Pedidos = new javax.swing.JLabel();
-        Facturación = new javax.swing.JLabel();
-        InventarioOpc = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         barraInventario = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -49,6 +46,69 @@ public class Facturacion extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1777, 997));
         setPreferredSize(new java.awt.Dimension(1777, 997));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel2.setForeground(new java.awt.Color(153, 153, 153));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1736, 137));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1736, 137));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1736, 137));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Finanzas.setBackground(new java.awt.Color(29, 84, 189));
+        Finanzas.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        Finanzas.setForeground(new java.awt.Color(102, 102, 102));
+        Finanzas.setText("Finanzas");
+        Finanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Finanzas.setMaximumSize(new java.awt.Dimension(1736, 49));
+        Finanzas.setMinimumSize(new java.awt.Dimension(1736, 49));
+        Finanzas.setPreferredSize(new java.awt.Dimension(1736, 49));
+        jPanel2.add(Finanzas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 110, -1));
+
+        Pedidos.setBackground(new java.awt.Color(241, 241, 241));
+        Pedidos.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        Pedidos.setForeground(new java.awt.Color(102, 102, 102));
+        Pedidos.setText("Pedidos");
+        Pedidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        Pedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Pedidos.setMaximumSize(new java.awt.Dimension(1736, 49));
+        Pedidos.setMinimumSize(new java.awt.Dimension(1736, 49));
+        Pedidos.setOpaque(true);
+        Pedidos.setPreferredSize(new java.awt.Dimension(1736, 49));
+        jPanel2.add(Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 100, -1));
+
+        InventarioOpc.setBackground(new java.awt.Color(241, 241, 241));
+        InventarioOpc.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        InventarioOpc.setForeground(new java.awt.Color(102, 102, 102));
+        InventarioOpc.setText("Inventario");
+        InventarioOpc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        InventarioOpc.setMaximumSize(new java.awt.Dimension(1736, 49));
+        InventarioOpc.setMinimumSize(new java.awt.Dimension(1736, 49));
+        InventarioOpc.setPreferredSize(new java.awt.Dimension(1736, 49));
+        InventarioOpc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InventarioOpcMouseClicked(evt);
+            }
+        });
+        jPanel2.add(InventarioOpc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, -1));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 49, 1230, 10));
+
+        Facturación.setBackground(new java.awt.Color(29, 84, 189));
+        Facturación.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        Facturación.setForeground(new java.awt.Color(102, 102, 102));
+        Facturación.setText("Facturación");
+        Facturación.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Facturación.setMaximumSize(new java.awt.Dimension(1736, 49));
+        Facturación.setMinimumSize(new java.awt.Dimension(1736, 49));
+        Facturación.setPreferredSize(new java.awt.Dimension(1736, 49));
+        Facturación.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FacturaciónMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Facturación, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 140, -1));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 53, 1736, 137));
 
         barraGrisSup.setBackground(new java.awt.Color(179, 179, 179));
         barraGrisSup.setMaximumSize(new java.awt.Dimension(1777, 38));
@@ -107,68 +167,10 @@ public class Facturacion extends javax.swing.JPanel {
 
         add(barraGrisSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        jPanel2.setForeground(new java.awt.Color(153, 153, 153));
-        jPanel2.setMaximumSize(new java.awt.Dimension(1736, 137));
-        jPanel2.setMinimumSize(new java.awt.Dimension(1736, 137));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1736, 137));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Finanzas.setBackground(new java.awt.Color(29, 84, 189));
-        Finanzas.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        Finanzas.setForeground(new java.awt.Color(102, 102, 102));
-        Finanzas.setText("Finanzas");
-        Finanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Finanzas.setMaximumSize(new java.awt.Dimension(1736, 49));
-        Finanzas.setMinimumSize(new java.awt.Dimension(1736, 49));
-        Finanzas.setPreferredSize(new java.awt.Dimension(1736, 49));
-        jPanel2.add(Finanzas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 110, -1));
-
-        Pedidos.setBackground(new java.awt.Color(29, 84, 189));
-        Pedidos.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        Pedidos.setForeground(new java.awt.Color(102, 102, 102));
-        Pedidos.setText("Pedidos");
-        Pedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Pedidos.setMaximumSize(new java.awt.Dimension(1736, 49));
-        Pedidos.setMinimumSize(new java.awt.Dimension(1736, 49));
-        Pedidos.setPreferredSize(new java.awt.Dimension(1736, 49));
-        jPanel2.add(Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 100, -1));
-
-        Facturación.setBackground(new java.awt.Color(241, 241, 241));
-        Facturación.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        Facturación.setForeground(new java.awt.Color(102, 102, 102));
-        Facturación.setText("Facturación");
-        Facturación.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        Facturación.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Facturación.setMaximumSize(new java.awt.Dimension(1736, 49));
-        Facturación.setMinimumSize(new java.awt.Dimension(1736, 49));
-        Facturación.setOpaque(true);
-        Facturación.setPreferredSize(new java.awt.Dimension(1736, 49));
-        jPanel2.add(Facturación, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 140, -1));
-
-        InventarioOpc.setBackground(new java.awt.Color(241, 241, 241));
-        InventarioOpc.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        InventarioOpc.setForeground(new java.awt.Color(102, 102, 102));
-        InventarioOpc.setText("Inventario");
-        InventarioOpc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        InventarioOpc.setMaximumSize(new java.awt.Dimension(1736, 49));
-        InventarioOpc.setMinimumSize(new java.awt.Dimension(1736, 49));
-        InventarioOpc.setPreferredSize(new java.awt.Dimension(1736, 49));
-        InventarioOpc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                InventarioOpcMouseClicked(evt);
-            }
-        });
-        jPanel2.add(InventarioOpc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, -1));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 49, 1230, 10));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 53, 1736, 137));
-
         barraInventario.setBackground(new java.awt.Color(29, 84, 189));
         barraInventario.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
         barraInventario.setForeground(new java.awt.Color(255, 255, 255));
-        barraInventario.setText("                       Facturación");
+        barraInventario.setText("                       Pedidos");
         barraInventario.setMaximumSize(new java.awt.Dimension(1736, 49));
         barraInventario.setMinimumSize(new java.awt.Dimension(1736, 49));
         barraInventario.setOpaque(true);
@@ -181,6 +183,12 @@ public class Facturacion extends javax.swing.JPanel {
         Inventario ventInv = new Inventario(inventario);
         Principal.ShowPanel(ventInv);
     }                                          
+
+    private void FacturaciónMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        // TODO add your handling code here:
+        Facturacion ventFac = new Facturacion(inventario);
+        Principal.ShowPanel(ventFac);
+    }                                        
 
 
     // Variables declaration - do not modify                     
