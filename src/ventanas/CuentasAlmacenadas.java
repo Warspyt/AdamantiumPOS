@@ -27,7 +27,8 @@ public class CuentasAlmacenadas {
         ListNode priv = ht.get(usuario);
         return priv.privilegios;
     }
-    }
+}
+
 class ListNode { 
          String usuario;
          String contraseña,privilegios;
