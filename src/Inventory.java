@@ -62,46 +62,26 @@ public class Inventory {
         updateHeight(leftChild);
         return leftChild;
     }
-
-    public Objeto rebalance(Objeto objeto, int ref){
-
-        int balance = getBalance(objeto);
-
-        if(balance>1 && ref<objeto.getLeftChild().getId()){
-            return rightChildRotation(objeto);
-        }
-        else if(balance<-1 && ref>objeto.getRightChild().getId()){
-            return leftChildRotation(objeto);
-        }
-        else if(balance>1 && ref>objeto.getLeftChild().getId()){
-            objeto.setLeftChild(leftChildRotation(objeto.getLeftChild()));
-            return rightChildRotation(objeto);
-        }
-        else if(balance<-1 && ref<objeto.getRightChild().getId()){
-            objeto.setRightChild(rightChildRotation(objeto.getRightChild()));
-            return leftChildRotation(objeto);
-        }
-
-        return objeto;
-    }
     public Objeto rebalance(Objeto objeto){
 
         int balance = getBalance(objeto);
 
-        if(balance>1 && getBalance(objeto.getLeftChild())>=0){
-            return rightChildRotation(objeto);
+        if (balance< -1) {
+            if (getBalance(objeto.getLeftChild()) <= 0) {    
+                objeto = rightChildRotation(objeto);
+            } else {                                
+                objeto.setLeftChild(leftChildRotation(objeto.getLeftChild()));
+                objeto = rightChildRotation(objeto);
+            }
         }
-        else if(balance<-1 && getBalance(objeto.getRightChild()) <= 0){
-            return leftChildRotation(objeto);
-        }
-        else if(balance>1 && getBalance(objeto.getLeftChild()) < 0){
-            objeto.setLeftChild(leftChildRotation(objeto.getLeftChild()));
-            return rightChildRotation(objeto);
-        }
-        else if(balance<-1 && getBalance(objeto.getRightChild()) > 0){
-            objeto.setRightChild(rightChildRotation(objeto.getRightChild()));
-            return leftChildRotation(objeto);
-        }
+        if (balance > 1) {
+            if (getBalance(objeto.getRightChild()) >= 0) {  
+              objeto = leftChildRotation(objeto);
+            } else {
+                objeto.setRightChild(rightChildRotation(objeto.getRightChild()));
+              objeto = leftChildRotation(objeto);
+            }
+          }
 
         return objeto;
     }
@@ -115,23 +95,18 @@ public class Inventory {
         if(objeto==null){
             return new Objeto(id,tipo,precDistribuidor,precVenta,cant);
         }
-        else{
-            if(objeto.getId() > id){
-                objeto.setLeftChild(insertElement(tipo,id,precDistribuidor,precVenta,cant,objeto.getLeftChild()));
-            }
-            else if(objeto.getId() < id){
-                objeto.setRightChild(insertElement(tipo, id, precDistribuidor, precVenta, cant, objeto.getRightChild()));
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "ID duplicado, inserte nuevo ID");
-            }
-            
-            if(objeto.getLeftChild()!=null && objeto.getRightChild()!=null){
-                objeto=rebalance(objeto,id);
-            }
-            updateHeight(objeto);
-            return (objeto);
+
+        if(objeto.getId() > id){
+            objeto.setLeftChild(insertElement(tipo,id,precDistribuidor,precVenta,cant,objeto.getLeftChild()));
         }
+        else if(objeto.getId() < id){
+            objeto.setRightChild(insertElement(tipo, id, precDistribuidor, precVenta, cant, objeto.getRightChild()));
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "ID duplicado, inserte nuevo ID");
+        }
+        updateHeight(objeto);
+        return rebalance(objeto);
     }
 
     public void Eliminar(int ref){

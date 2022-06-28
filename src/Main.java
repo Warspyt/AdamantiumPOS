@@ -14,9 +14,10 @@ public class Main {
         Inventory inventario;
         inventario = new Inventory();
 
-        inventario.Insertar("Camisar", 302, 30000, 40000, 10);
-        inventario.Insertar("Pantalon", 322, 30000, 35000,10);
-        inventario.Insertar("Medias", 332, 3000, 10000,20);
+        for(int i=0;i<1000;i++){
+            inventario.Insertar("Objeto"+i,i,30000,50000,400);
+        }
+        System.out.println(inventario.root.getLeftChild().getNombre()+" ||||||| "+inventario.root.getRightChild().getNombre());
 
         while (true) {
 
