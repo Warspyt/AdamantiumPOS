@@ -1,3 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ventanas;
+
+/**
+ *
+ * @author espin
+ */
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -30,3 +40,4 @@ public class TablaFactura extends JFrame {
     private final String[] columNames = { "Id-Factura", "Referencia Producto", "Cantidad", "Total", "Fecha" };
     private Object[][] datosFilas;
 }
+

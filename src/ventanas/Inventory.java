@@ -1,10 +1,15 @@
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollPane;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ventanas;
 
-import java.awt.*;
+/**
+ *
+ * @author espin
+ */
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -12,40 +17,40 @@ import java.awt.*;
  * @author espin
  */
 public class Inventory {
-    Objeto root;
+    static Objeto root;
     
     public Inventory(){
         root=null;
     }
     
-    public boolean isEmpty(){
+    public static boolean isEmpty(){
         if(root==null){
             return true;
         }
         return false;
     }
 
-    public void clearAll(){
+    public static void clearAll(){
         root=null;
     }
 
-    private int getHeight(Objeto objeto){
+    private static int getHeight(Objeto objeto){
         return objeto == null? -1: objeto.getAltura();
     }
 
-    private void updateHeight(Objeto objeto){
+    private static void updateHeight(Objeto objeto){
         objeto.setAltura(1 + getMaxHeight(getHeight(objeto.getLeftChild()),getHeight(objeto.getRightChild())));
     }
 
-    private int getBalance(Objeto objeto){
+    private static int getBalance(Objeto objeto){
         return(objeto==null)?0 : getHeight(objeto.getRightChild()) - getHeight(objeto.getLeftChild());
     }
 
-    private int getMaxHeight(int leftHeight,int rightHeight){
+    private static int getMaxHeight(int leftHeight,int rightHeight){
         return leftHeight > rightHeight? leftHeight:rightHeight;
     }
 
-    public Objeto leftChildRotation(Objeto objeto){
+    public static Objeto leftChildRotation(Objeto objeto){
         Objeto rightChild=objeto.getRightChild();
         objeto.setRightChild(rightChild.getLeftChild());
         rightChild.setLeftChild(objeto);
@@ -54,7 +59,7 @@ public class Inventory {
         return rightChild;
     }
 
-    public Objeto rightChildRotation(Objeto objeto){
+    public static Objeto rightChildRotation(Objeto objeto){
         Objeto leftChild=objeto.getLeftChild();
         objeto.setLeftChild(leftChild.getRightChild());
         leftChild.setRightChild(objeto);
@@ -63,7 +68,7 @@ public class Inventory {
         return leftChild;
     }
 
-    public Objeto rebalance(Objeto objeto, int ref){
+    public static Objeto rebalance(Objeto objeto, int ref){
 
         int balance = getBalance(objeto);
 
@@ -84,7 +89,7 @@ public class Inventory {
 
         return objeto;
     }
-    public Objeto rebalance(Objeto objeto){
+    public static Objeto rebalance(Objeto objeto){
 
         int balance = getBalance(objeto);
 
@@ -134,11 +139,11 @@ public class Inventory {
         }
     }
 
-    public void Eliminar(int ref){
+    public static void Eliminar(int ref){
         root = delete(root, ref);
     }
 
-    private Objeto delete(Objeto objeto, int id){
+    private static Objeto delete(Objeto objeto, int id){
         if(objeto == null){
             return null;
         }
@@ -165,7 +170,7 @@ public class Inventory {
         return objeto;
     }
 
-    private Objeto maxLeftChild(Objeto objeto){
+    private static Objeto maxLeftChild(Objeto objeto){
         Objeto current = objeto;
         while(current.getLeftChild()!=null){
             current = current.getLeftChild();
@@ -173,17 +178,17 @@ public class Inventory {
         return current;
     }
 
-    public void ModificarPrecioDistribuidor(int ref, int precioNuevo){
+    public static void ModificarPrecioDistribuidor(int ref, int precioNuevo){
         search(ref).setPrecio_distribuidor(precioNuevo);
     }
-    public void ModificarPrecioVenta(int ref, int precioNuevo){
+    public static void ModificarPrecioVenta(int ref, int precioNuevo){
         search(ref).setPrecio_venta(precioNuevo);
     }
-    public void ModificarCantidad(int ref, int nuevaCantidad){
+    public static void ModificarCantidad(int ref, int nuevaCantidad){
         search(ref).setCantidad(nuevaCantidad);
     }
 
-    public Objeto search(int ref){
+    public static Objeto search(int ref){
         Objeto searched = root;
         boolean check = false;
         while(searched != null && check!=true){
@@ -199,43 +204,34 @@ public class Inventory {
         }
         return searched;
     }
-
-
-    public void ImprimirInventario(){
-        MarcoTabla tabla= new MarcoTabla();
-        print(root,tabla);
-        JFrame mimarco= tabla;
-        mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mimarco.setVisible(true);
-   
+    
+    public static Objeto searchByName(String ref){
+        Objeto searched = root;
+        while(searched != null){
+            int compare = searched.getNombre().compareTo(ref);
+            
+            if(compare == 0){
+                break;
+            }
+            else{
+                if(compare < 0){
+                    searched = searched.getRightChild();
+                }
+                else if(compare > 0){
+                    searched = searched.getLeftChild();
+                }
+            }  
+        }
+        return searched;
     }
 
-    private void print(Objeto printed, MarcoTabla tabla){
+    public static void print(Objeto printed, DefaultTableModel model){
         if(printed == null){
             return;
         }
-        print(printed.getRightChild(),tabla);
+        print(printed.getRightChild(),model);
         Object[] newRow = {printed.getNombre(),printed.getId(),printed.getPrecio_distribuidor(), printed.getPrecio_venta(),printed.getCantidad()};
-        tabla.addRow(newRow);
-        print(printed.getLeftChild(), tabla);
+        model.addRow(newRow);
+        print(printed.getLeftChild(), model);
     }
-}
-
-class MarcoTabla extends JFrame{
-    DefaultTableModel model;
-    JTable tabla;
-    
-    public MarcoTabla(){
-        setTitle("INVENTARIO");
-        setBounds(300,300,600,200);
-        model = new DefaultTableModel(datosFilas,columNames);
-        tabla=new JTable(model);
-        add(new JScrollPane(tabla),BorderLayout.CENTER);
-    }
-    public void addRow(Object[] row){
-        model.insertRow(0,row);
-    }
-
-    private final String[] columNames = {"Nombre","Referencia","Precio Distribuidor", "Precio Venta","Cantidad"};
-    private Object [][] datosFilas;
 }
