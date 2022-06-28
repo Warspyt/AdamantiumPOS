@@ -37,11 +37,11 @@ public class Facturacion extends javax.swing.JPanel {
         Edicion = new javax.swing.JLabel();
         Archivo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Finanzas = new javax.swing.JLabel();
-        Pedidos = new javax.swing.JLabel();
         Facturación = new javax.swing.JLabel();
         InventarioOpc = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        Pedidos = new javax.swing.JLabel();
+        Finanzas = new javax.swing.JLabel();
         barraInventario = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -115,26 +115,6 @@ public class Facturacion extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(1736, 137));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Finanzas.setBackground(new java.awt.Color(29, 84, 189));
-        Finanzas.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        Finanzas.setForeground(new java.awt.Color(102, 102, 102));
-        Finanzas.setText("Finanzas");
-        Finanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Finanzas.setMaximumSize(new java.awt.Dimension(1736, 49));
-        Finanzas.setMinimumSize(new java.awt.Dimension(1736, 49));
-        Finanzas.setPreferredSize(new java.awt.Dimension(1736, 49));
-        jPanel2.add(Finanzas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 110, -1));
-
-        Pedidos.setBackground(new java.awt.Color(29, 84, 189));
-        Pedidos.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        Pedidos.setForeground(new java.awt.Color(102, 102, 102));
-        Pedidos.setText("Pedidos");
-        Pedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Pedidos.setMaximumSize(new java.awt.Dimension(1736, 49));
-        Pedidos.setMinimumSize(new java.awt.Dimension(1736, 49));
-        Pedidos.setPreferredSize(new java.awt.Dimension(1736, 49));
-        jPanel2.add(Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 100, -1));
-
         Facturación.setBackground(new java.awt.Color(241, 241, 241));
         Facturación.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
         Facturación.setForeground(new java.awt.Color(102, 102, 102));
@@ -163,6 +143,36 @@ public class Facturacion extends javax.swing.JPanel {
         jPanel2.add(InventarioOpc, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, -1));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 49, 1230, 10));
 
+        Pedidos.setBackground(new java.awt.Color(29, 84, 189));
+        Pedidos.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        Pedidos.setForeground(new java.awt.Color(102, 102, 102));
+        Pedidos.setText("Pedidos");
+        Pedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Pedidos.setMaximumSize(new java.awt.Dimension(1736, 49));
+        Pedidos.setMinimumSize(new java.awt.Dimension(1736, 49));
+        Pedidos.setPreferredSize(new java.awt.Dimension(1736, 49));
+        Pedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PedidosMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Pedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 100, -1));
+
+        Finanzas.setBackground(new java.awt.Color(29, 84, 189));
+        Finanzas.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        Finanzas.setForeground(new java.awt.Color(102, 102, 102));
+        Finanzas.setText("Finanzas");
+        Finanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Finanzas.setMaximumSize(new java.awt.Dimension(1736, 49));
+        Finanzas.setMinimumSize(new java.awt.Dimension(1736, 49));
+        Finanzas.setPreferredSize(new java.awt.Dimension(1736, 49));
+        Finanzas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FinanzasMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Finanzas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 110, -1));
+
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 53, 1736, 137));
 
         barraInventario.setBackground(new java.awt.Color(29, 84, 189));
@@ -181,6 +191,18 @@ public class Facturacion extends javax.swing.JPanel {
         Inventario ventInv = new Inventario(inventario);
         Principal.ShowPanel(ventInv);
     }                                          
+
+    private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {                                     
+        // TODO add your handling code here:
+        Pedidos ventPed = new Pedidos(inventario);
+        Principal.ShowPanel(ventPed);
+    }                                    
+
+    private void FinanzasMouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+        Finanzas ventFin = new Finanzas(inventario);
+        Principal.ShowPanel(ventFin);
+    }                                     
 
 
     // Variables declaration - do not modify                     
