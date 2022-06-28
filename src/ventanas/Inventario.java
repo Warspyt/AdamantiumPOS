@@ -26,10 +26,15 @@ public class Inventario extends javax.swing.JPanel {
     DefaultTableCellRenderer alinear;
     private final String[] columNames = {"Id","Nombre","Precio Distribuidor", "Precio Venta","Cantidad"};
     private Object [][] datosFilas;
+    Calculadora calculadora = new Calculadora();
     
     public Inventario(Inventory inventario) {
         this.inventario = inventario;
         initComponents();
+        jPanel4.removeAll();
+        jPanel4.add(calculadora,BorderLayout.CENTER);
+        jPanel4.revalidate();
+        jPanel4.repaint();
         actualizaTabla();
     }
     public void actualizaTabla(){
