@@ -1,15 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ventanas;
 
 /**
  *
  * @author espin
  */
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import java.awt.*;
 
 
 /**
@@ -68,45 +69,26 @@ public class Inventory {
         return leftChild;
     }
 
-    public static Objeto rebalance(Objeto objeto, int ref){
-
-        int balance = getBalance(objeto);
-
-        if(balance>1 && ref<objeto.getLeftChild().getId()){
-            return rightChildRotation(objeto);
-        }
-        else if(balance<-1 && ref>objeto.getRightChild().getId()){
-            return leftChildRotation(objeto);
-        }
-        else if(balance>1 && ref>objeto.getLeftChild().getId()){
-            objeto.setLeftChild(leftChildRotation(objeto.getLeftChild()));
-            return rightChildRotation(objeto);
-        }
-        else if(balance<-1 && ref<objeto.getRightChild().getId()){
-            objeto.setRightChild(rightChildRotation(objeto.getRightChild()));
-            return leftChildRotation(objeto);
-        }
-
-        return objeto;
-    }
     public static Objeto rebalance(Objeto objeto){
 
         int balance = getBalance(objeto);
 
-        if(balance>1 && getBalance(objeto.getLeftChild())>=0){
-            return rightChildRotation(objeto);
+        if (balance< -1) {
+            if (getBalance(objeto.getLeftChild()) <= 0) {    
+                objeto = rightChildRotation(objeto);
+            } else {                                
+                objeto.setLeftChild(leftChildRotation(objeto.getLeftChild()));
+                objeto = rightChildRotation(objeto);
+            }
         }
-        else if(balance<-1 && getBalance(objeto.getRightChild()) <= 0){
-            return leftChildRotation(objeto);
-        }
-        else if(balance>1 && getBalance(objeto.getLeftChild()) < 0){
-            objeto.setLeftChild(leftChildRotation(objeto.getLeftChild()));
-            return rightChildRotation(objeto);
-        }
-        else if(balance<-1 && getBalance(objeto.getRightChild()) > 0){
-            objeto.setRightChild(rightChildRotation(objeto.getRightChild()));
-            return leftChildRotation(objeto);
-        }
+        if (balance > 1) {
+            if (getBalance(objeto.getRightChild()) >= 0) {  
+              objeto = leftChildRotation(objeto);
+            } else {
+                objeto.setRightChild(rightChildRotation(objeto.getRightChild()));
+              objeto = leftChildRotation(objeto);
+            }
+          }
 
         return objeto;
     }
@@ -120,23 +102,18 @@ public class Inventory {
         if(objeto==null){
             return new Objeto(id,tipo,precDistribuidor,precVenta,cant);
         }
-        else{
-            if(objeto.getId() > id){
-                objeto.setLeftChild(insertElement(tipo,id,precDistribuidor,precVenta,cant,objeto.getLeftChild()));
-            }
-            else if(objeto.getId() < id){
-                objeto.setRightChild(insertElement(tipo, id, precDistribuidor, precVenta, cant, objeto.getRightChild()));
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "ID duplicado, inserte nuevo ID");
-            }
-            
-            if(objeto.getLeftChild()!=null && objeto.getRightChild()!=null){
-                objeto=rebalance(objeto,id);
-            }
-            updateHeight(objeto);
-            return (objeto);
+
+        if(objeto.getId() > id){
+            objeto.setLeftChild(insertElement(tipo,id,precDistribuidor,precVenta,cant,objeto.getLeftChild()));
         }
+        else if(objeto.getId() < id){
+            objeto.setRightChild(insertElement(tipo, id, precDistribuidor, precVenta, cant, objeto.getRightChild()));
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "ID duplicado, inserte nuevo ID");
+        }
+        updateHeight(objeto);
+        return rebalance(objeto);
     }
 
     public static void Eliminar(int ref){
@@ -147,6 +124,7 @@ public class Inventory {
         if(objeto == null){
             return null;
         }
+
         else{
             if(objeto.getId() > id){
                 objeto.setLeftChild(delete(objeto.getLeftChild(),id));
@@ -154,20 +132,32 @@ public class Inventory {
             else if(objeto.getId() < id){
                 objeto.setRightChild(delete(objeto.getRightChild(),id));
             }
-            else if(objeto.getLeftChild()==null || objeto.getRightChild()==null){
-                objeto=(objeto.getLeftChild()==null)? objeto.getRightChild():objeto.getLeftChild();
+            else if(objeto.getLeftChild()==null && objeto.getRightChild()==null){
+                objeto=null;
             }
+
+            else if(objeto.getLeftChild()==null){
+                objeto = objeto.getRightChild();
+            }else if(objeto.getRightChild()==null){
+                objeto = objeto.getLeftChild();
+            }
+
             else{
                 Objeto maxLeftChild =maxLeftChild(objeto.getRightChild());
                 objeto.setId(maxLeftChild.getId());
-                objeto.setRightChild(delete(objeto.getRightChild(),objeto.getId()));
+                objeto.setNombre(maxLeftChild.getNombre());
+                objeto.setCantidad(maxLeftChild.getCantidad());
+                objeto.setPrecio_distribuidor(maxLeftChild.getPrecio_distribuidor());
+                objeto.setPrecio_venta(maxLeftChild.getPrecio_venta());
+
+                objeto.setRightChild(delete(objeto.getRightChild(),maxLeftChild.getId()));
             }
         }
-        if(objeto!=null){
-            objeto=rebalance(objeto);
+        if(objeto==null){
+            return null;
         }
         updateHeight(objeto);
-        return objeto;
+        return rebalance(objeto);
     }
 
     private static Objeto maxLeftChild(Objeto objeto){
@@ -230,7 +220,7 @@ public class Inventory {
             return;
         }
         print(printed.getRightChild(),model);
-        Object[] newRow = {printed.getNombre(),printed.getId(),printed.getPrecio_distribuidor(), printed.getPrecio_venta(),printed.getCantidad()};
+        Object[] newRow = {printed.getId(),printed.getNombre(),printed.getPrecio_distribuidor(), printed.getPrecio_venta(),printed.getCantidad()};
         model.addRow(newRow);
         print(printed.getLeftChild(), model);
     }
