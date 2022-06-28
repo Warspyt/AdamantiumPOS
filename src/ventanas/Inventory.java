@@ -11,13 +11,17 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import java.awt.*;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 
 /**
  *
  * @author espin
  */
-public class Inventory {
+public class Inventory implements Serializable {
+    private static final long serialVersionUID = 6529685098267757690L;
     static Objeto root;
     
     public Inventory(){
@@ -214,7 +218,6 @@ public class Inventory {
         }
         return searched;
     }
-
     public static void print(Objeto printed, DefaultTableModel model){
         if(printed == null){
             return;

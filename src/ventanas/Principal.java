@@ -337,15 +337,27 @@ public class Principal extends javax.swing.JFrame {
     }                                  
 
     private void AbrirMouseClicked(java.awt.event.MouseEvent evt) {                                   
+
+        Inventory inv = new Inventory();
+        Serialize<Inventory> sz = new Serialize<>();
         Inicio.setBackground(new Color(30,84,190));
         Nuevo.setBackground(new Color(30,84,190));
         Abrir.setBackground(new Color(15,53,126));
         JFileChooser jf = new JFileChooser();
         jf.showOpenDialog(this);
         File archivo = jf.getSelectedFile();
+        
         if(archivo!=null){
-            //abrirBaseDeDatos(inventario)
+            try {
+                inv = sz.ReadObjectFromFile_AVL("data\\"+archivo.getName());
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        Inventario ventInv = new Inventario(inv);
+        Principal.ShowPanel(ventInv);
     }                                  
 
     private void InfoMouseEntered(java.awt.event.MouseEvent evt) {                                  

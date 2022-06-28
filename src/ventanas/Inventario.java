@@ -20,6 +20,7 @@ public class Inventario extends javax.swing.JPanel {
      */
     Inventory inventario;
     DefaultTableModel model;
+    Serialize sz = new Serialize();
 
     public Inventario() {
     }
@@ -355,6 +356,11 @@ public class Inventario extends javax.swing.JPanel {
 
         BarrGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barraGuardar.png"))); // NOI18N
         BarrGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BarrGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BarrGuardarMouseClicked(evt);
+            }
+        });
         jPanel2.add(BarrGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 49, 1230, 10));
 
@@ -546,6 +552,11 @@ public class Inventario extends javax.swing.JPanel {
         Finanzas ventFin = new Finanzas(inventario);
         Principal.ShowPanel(ventFin);
     }                                     
+
+    private void BarrGuardarMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        // TODO add your handling code here:
+        sz.WriteObjectToFile(inventario);
+    }                                        
 
 
     // Variables declaration - do not modify                     
