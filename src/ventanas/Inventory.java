@@ -230,6 +230,8 @@ public class Inventory implements Serializable {
     public void imprimirPedido(int tope, DefaultTableModel model) {
         PrintPedido(tope, root, model);
     }
+
+    /* Metodo para imprimir el pedido de cada articulo */
     private void PrintPedido(int tope, Objeto producto, DefaultTableModel model) {
         if (producto == null) {
             return;
@@ -240,6 +242,7 @@ public class Inventory implements Serializable {
                     (tope - producto.getCantidad()), producto.getPrecio_distribuidor(),
                     (producto.getPrecio_distribuidor() * (tope - producto.getCantidad())) };
             model.addRow(newRow);
+
         }
         PrintPedido(tope, producto.getLeftChild(), model);
     }

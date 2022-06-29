@@ -20,6 +20,7 @@ public class Pedidos extends javax.swing.JPanel {
         this.Facturacion = factura;
         this.inventario=inventario;
         initComponents();
+        actualizaTabla();
     }
 
     DefaultTableCellRenderer alinear;
