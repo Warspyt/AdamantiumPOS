@@ -33,7 +33,7 @@ public class Pedido extends javax.swing.JPanel {
     }
 
     public void actualizaTabla() {
-        this.pedidoTabla.repaint(200, 275, 1060, 520);
+        this.pedidoTabla.repaint(359, 300, 1060, 520);
         model = new DefaultTableModel(datosFilas, columNames) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -46,7 +46,7 @@ public class Pedido extends javax.swing.JPanel {
         alinear.setHorizontalAlignment(SwingConstants.CENTER);
         alinear.setBackground(Color.WHITE);
         this.pedidoTabla.setModel(model);
-        this.pedidoTabla.setBounds(200, 275, 1060, 520);
+        this.pedidoTabla.setBounds(359, 300, 1060, 520);
         for (int i = 0; i <= 4; i++) {
             this.pedidoTabla.getColumnModel().getColumn(i).setCellRenderer(alinear);
         }
@@ -259,7 +259,7 @@ public class Pedido extends javax.swing.JPanel {
         pedidoTabla.setPreferredSize(new java.awt.Dimension(1060, 517));
         jScrollPane1.setViewportView(pedidoTabla);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 275, 1060, 520));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 300, 1060, 520));
     }// </editor-fold>
 
     private void BarrPedidoMouseClicked(java.awt.event.MouseEvent evt) {
