@@ -60,7 +60,7 @@ public class Inventario extends javax.swing.JPanel {
         }
         this.inventarioTabla.setShowGrid(true);
         this.inventarioTabla.setGridColor(new Color(242,242,242));
-        Inventory.print(Inventory.root,this.model);
+        this.inventario.print(this.inventario.root,this.model);
     }
 
     /**

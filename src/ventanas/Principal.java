@@ -350,7 +350,7 @@ public class Principal extends javax.swing.JFrame {
         
         if(archivo!=null){
             try {
-                inv = sz.ReadObjectFromFile_AVL(archivo.getName());
+                inv = sz.ReadObjectFromFile_AVL("data\\"+archivo.getName());
                 Arreglo factura = new Arreglo(200);
                 Inventario ventInv = new Inventario(inv,factura);
                 Principal.ShowPanel(ventInv);

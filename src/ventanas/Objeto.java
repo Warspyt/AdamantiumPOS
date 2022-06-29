@@ -1,14 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ventanas;
+
+import java.io.Serializable;
 
 /**
  *
  * @author espin
  */
-public class Objeto {
+public class Objeto implements Serializable {
     private int id,altura;
     private String nombre;
     private int precio_distribuidor;
@@ -106,4 +104,3 @@ public class Objeto {
     }
 
 }
-

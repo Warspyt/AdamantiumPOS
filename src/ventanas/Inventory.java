@@ -21,41 +21,40 @@ import java.io.Serializable;
  * @author espin
  */
 public class Inventory implements Serializable {
-    private static final long serialVersionUID = 6529685098267757690L;
-    static Objeto root;
+    Objeto root;
     
     public Inventory(){
         root=null;
     }
     
-    public static boolean isEmpty(){
+    public boolean isEmpty(){
         if(root==null){
             return true;
         }
         return false;
     }
 
-    public static void clearAll(){
+    public void clearAll(){
         root=null;
     }
 
-    private static int getHeight(Objeto objeto){
+    private int getHeight(Objeto objeto){
         return objeto == null? -1: objeto.getAltura();
     }
 
-    private static void updateHeight(Objeto objeto){
+    private void updateHeight(Objeto objeto){
         objeto.setAltura(1 + getMaxHeight(getHeight(objeto.getLeftChild()),getHeight(objeto.getRightChild())));
     }
 
-    private static int getBalance(Objeto objeto){
+    private int getBalance(Objeto objeto){
         return(objeto==null)?0 : getHeight(objeto.getRightChild()) - getHeight(objeto.getLeftChild());
     }
 
-    private static int getMaxHeight(int leftHeight,int rightHeight){
+    private int getMaxHeight(int leftHeight,int rightHeight){
         return leftHeight > rightHeight? leftHeight:rightHeight;
     }
 
-    public static Objeto leftChildRotation(Objeto objeto){
+    public Objeto leftChildRotation(Objeto objeto){
         Objeto rightChild=objeto.getRightChild();
         objeto.setRightChild(rightChild.getLeftChild());
         rightChild.setLeftChild(objeto);
@@ -64,7 +63,7 @@ public class Inventory implements Serializable {
         return rightChild;
     }
 
-    public static Objeto rightChildRotation(Objeto objeto){
+    public Objeto rightChildRotation(Objeto objeto){
         Objeto leftChild=objeto.getLeftChild();
         objeto.setLeftChild(leftChild.getRightChild());
         leftChild.setRightChild(objeto);
@@ -73,7 +72,7 @@ public class Inventory implements Serializable {
         return leftChild;
     }
 
-    public static Objeto rebalance(Objeto objeto){
+    public Objeto rebalance(Objeto objeto){
 
         int balance = getBalance(objeto);
 
@@ -120,11 +119,11 @@ public class Inventory implements Serializable {
         return rebalance(objeto);
     }
 
-    public static void Eliminar(int ref){
+    public void Eliminar(int ref){
         root = delete(root, ref);
     }
 
-    private static Objeto delete(Objeto objeto, int id){
+    private Objeto delete(Objeto objeto, int id){
         if(objeto == null){
             return null;
         }
@@ -164,7 +163,7 @@ public class Inventory implements Serializable {
         return rebalance(objeto);
     }
 
-    private static Objeto maxLeftChild(Objeto objeto){
+    private Objeto maxLeftChild(Objeto objeto){
         Objeto current = objeto;
         while(current.getLeftChild()!=null){
             current = current.getLeftChild();
@@ -172,17 +171,17 @@ public class Inventory implements Serializable {
         return current;
     }
 
-    public static void ModificarPrecioDistribuidor(int ref, int precioNuevo){
+    public void ModificarPrecioDistribuidor(int ref, int precioNuevo){
         search(ref).setPrecio_distribuidor(precioNuevo);
     }
-    public static void ModificarPrecioVenta(int ref, int precioNuevo){
+    public void ModificarPrecioVenta(int ref, int precioNuevo){
         search(ref).setPrecio_venta(precioNuevo);
     }
-    public static void ModificarCantidad(int ref, int nuevaCantidad){
+    public void ModificarCantidad(int ref, int nuevaCantidad){
         search(ref).setCantidad(nuevaCantidad);
     }
 
-    public static Objeto search(int ref){
+    public Objeto search(int ref){
         Objeto searched = root;
         boolean check = false;
         while(searched != null && check!=true){
@@ -199,7 +198,7 @@ public class Inventory implements Serializable {
         return searched;
     }
     
-    public static Objeto searchByName(String ref){
+    public Objeto searchByName(String ref){
         Objeto searched = root;
         while(searched != null){
             int compare = searched.getNombre().compareTo(ref);
@@ -218,7 +217,7 @@ public class Inventory implements Serializable {
         }
         return searched;
     }
-    public static void print(Objeto printed, DefaultTableModel model){
+    public void print(Objeto printed, DefaultTableModel model){
         if(printed == null){
             return;
         }
