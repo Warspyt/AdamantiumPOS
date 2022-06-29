@@ -332,7 +332,8 @@ public class Principal extends javax.swing.JFrame {
         Nuevo.setBackground(new Color(15,53,126));
         Abrir.setBackground(new Color(30,84,190));
         Inventory inv = new Inventory();
-        Inventario ventInv = new Inventario(inv);
+        Arreglo factura = new Arreglo(200);
+        Inventario ventInv = new Inventario(inv,factura);
         Principal.ShowPanel(ventInv);
     }                                  
 
@@ -349,15 +350,16 @@ public class Principal extends javax.swing.JFrame {
         
         if(archivo!=null){
             try {
-                inv = sz.ReadObjectFromFile_AVL("data\\"+archivo.getName());
+                inv = sz.ReadObjectFromFile_AVL(archivo.getName());
+                Arreglo factura = new Arreglo(200);
+                Inventario ventInv = new Inventario(inv,factura);
+                Principal.ShowPanel(ventInv);
             } catch (IOException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        Inventario ventInv = new Inventario(inv);
-        Principal.ShowPanel(ventInv);
     }                                  
 
     private void InfoMouseEntered(java.awt.event.MouseEvent evt) {                                  

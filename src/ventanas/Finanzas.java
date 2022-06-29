@@ -10,9 +10,11 @@ public class Finanzas extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     Inventory inventario;
+    Arreglo Facturacion;
     
-    public Finanzas(Inventory inventario) {
+    public Finanzas(Inventory inventario, Arreglo factura) {
         this.inventario = inventario;
+        this.Facturacion = factura;
         initComponents();
     }
 
@@ -186,19 +188,19 @@ public class Finanzas extends javax.swing.JPanel {
 
     private void InventarioOpcMouseClicked(java.awt.event.MouseEvent evt) {                                           
         // TODO add your handling code here:
-        Inventario ventInv = new Inventario(inventario);
+        Inventario ventInv = new Inventario(inventario,Facturacion);
         Principal.ShowPanel(ventInv);
     }                                          
 
     private void FacturaciónMouseClicked(java.awt.event.MouseEvent evt) {                                         
         // TODO add your handling code here:
-        Facturacion ventFac = new Facturacion(inventario);
+        Facturacion ventFac = new Facturacion(inventario,Facturacion);
         Principal.ShowPanel(ventFac);
     }                                        
 
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
-        Pedidos ventPed = new Pedidos(inventario);
+        Pedidos ventPed = new Pedidos(inventario,Facturacion);
         Principal.ShowPanel(ventPed);
     }                                    
 

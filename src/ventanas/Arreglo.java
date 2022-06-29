@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ventanas;
 
 /**
@@ -11,6 +7,7 @@ package ventanas;
 import javax.swing.JFrame;
 import java.util.Random;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 /* Estructura lineal de una lista implementando un arreglo */
 class Arreglo {
@@ -110,9 +107,7 @@ class Arreglo {
     }
 
     /* Metodo para mostrar las facturas */
-    public void printFacturas() {
-        TablaFactura tablafacturas = new TablaFactura();
-
+    public void printFacturas(DefaultTableModel model) {
         int i = 0;
         while (arreglo[i] != null) {
             Object[] newRow = { arreglo[i].getId_factura(),
@@ -120,17 +115,9 @@ class Arreglo {
                     arreglo[i].getCantidad(),
                     arreglo[i].getTotal(),
                     arreglo[i].getFecha(), };
-            tablafacturas.addRow(newRow);
+            model.addRow(newRow);
             i++;
         }
-
-        JFrame mimarco = tablafacturas;
-        mimarco.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        mimarco.setVisible(true);
-        while (mimarco.isShowing()) {
-            mimarco.setVisible(true);
-        }
-
     }
 
     /* Metodo para generar una cierta cantidad de registros aleatoriamente */

@@ -7,13 +7,13 @@ package ventanas;
 import java.io.*;
 import javax.swing.JOptionPane;
 
-public class Serialize <T> {
+public class Serialize <Inventory> {
     
     private static final long serialVersionUID = 6529685098267757690L;
     
-    public void WriteObjectToFile(T Obj) {
+    public void WriteObjectToFile(Inventory Obj) {
         try{
-            FileOutputStream fileOut = new FileOutputStream("data\\" + JOptionPane.showInputDialog("Inserte el nombre con el que se guardará el Inventario"));
+            FileOutputStream fileOut = new FileOutputStream(JOptionPane.showInputDialog("Inserte el nombre con el que se guardará el Inventario")+".inv");
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(Obj);
             objectOut.close();
@@ -22,10 +22,10 @@ public class Serialize <T> {
             ex.printStackTrace();
         }
     }
-    public T ReadObjectFromFile_AVL(String path) throws IOException, ClassNotFoundException{
+    public Inventory ReadObjectFromFile_AVL(String path) throws IOException, ClassNotFoundException{
         FileInputStream fileIn = new FileInputStream(path);
         ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-        T tree = (T) objectIn.readObject();
+        Inventory tree = (Inventory) objectIn.readObject();
         objectIn.close();
         return tree;
     }

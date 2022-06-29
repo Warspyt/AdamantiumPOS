@@ -19,8 +19,9 @@ public class Inventario extends javax.swing.JPanel {
      * Creates new form Inventario
      */
     Inventory inventario;
+    Arreglo Facturacion;
     DefaultTableModel model;
-    Serialize sz = new Serialize();
+    Serialize<Inventory> sz = new Serialize<>();
 
     public Inventario() {
     }
@@ -29,8 +30,9 @@ public class Inventario extends javax.swing.JPanel {
     private Object [][] datosFilas;
     Calculadora calculadora = new Calculadora();
     
-    public Inventario(Inventory inventario) {
+    public Inventario(Inventory inventario,Arreglo Facturacion) {
         this.inventario = inventario;
+        this.Facturacion = Facturacion;
         initComponents();
         actualizaTabla();
         PanelCalculadora.removeAll();
@@ -537,19 +539,19 @@ public class Inventario extends javax.swing.JPanel {
 
     private void FacturaciónMouseClicked(java.awt.event.MouseEvent evt) {                                         
         // TODO add your handling code here:
-        Facturacion ventFac = new Facturacion(inventario);
+        Facturacion ventFac = new Facturacion(inventario,Facturacion);
         Principal.ShowPanel(ventFac);
     }                                        
 
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
-        Pedidos ventPed = new Pedidos(inventario);
+        Pedidos ventPed = new Pedidos(inventario,Facturacion);
         Principal.ShowPanel(ventPed);
     }                                    
 
     private void FinanzasMouseClicked(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
-        Finanzas ventFin = new Finanzas(inventario);
+        Finanzas ventFin = new Finanzas(inventario,Facturacion);
         Principal.ShowPanel(ventFin);
     }                                     
 

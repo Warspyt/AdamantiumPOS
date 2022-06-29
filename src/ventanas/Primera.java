@@ -91,14 +91,16 @@ public class Primera extends javax.swing.JPanel {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        Inventario ventInv = new Inventario(inv);
+        Arreglo factura = new Arreglo(200);
+        Inventario ventInv = new Inventario(inv,factura);
         Principal.ShowPanel(ventInv);
     }                                   
 
     private void nuevoMouseClicked(java.awt.event.MouseEvent evt) {                                   
         // TODO add your handling code here:
         Inventory inv = new Inventory();
-        Inventario ventInv = new Inventario(inv);
+        Arreglo factura = new Arreglo(200);
+        Inventario ventInv = new Inventario(inv,factura);
         Principal.ShowPanel(ventInv);
     }                                  
 
